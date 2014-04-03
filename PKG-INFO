@@ -1,0 +1,22 @@
+Metadata-Version: 1.0
+Name: Robot-AppEyes
+Version: 1.0
+Summary: Visual Verification testing library for Robot Framework
+Home-page: https://github.com/NaviNet/Robot-AppEyes
+Author: Thomas Armstrong, Simon McMorran, Gareth Nixon, Adam Simmons
+Author-email: <tehtom@hotmail.co.uk>, <sijm007@gmail.com>, <gnixon@navinet.net>, <asimmons@navinet.net>
+License: Apache License, Version 2.0
+Description: 	Robot-AppEyes is a visual verfication library for Robot Framework that leverages
+    			the Eyes-Selenium and Selenium2 libraries. 
+        
+            	Test script is available inside the distribution under the 'atests' directory.
+            
+Keywords: robotframework testing testautomation eyes-selenium selenium2 visual-verification
+Platform: Any
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Software Development :: Quality Assurance

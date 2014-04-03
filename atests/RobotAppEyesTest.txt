@@ -1,0 +1,88 @@
+*** Settings ***
+Library                                             Selenium2Library
+Library                                             RobotAppEyes
+
+*** Variables ***
+### Selenium2Library Variables ###
+${LoginButton}                          	        xpath=//*[@id="block-block-7"]/div/ul/li[1]/a
+${SupportButton}                        	        xpath=//*[@id="block-block-7"]/div/ul/li[2]/a
+
+${SolutionsTab}                          	        xpath=//*[@id="navbar"]/div/div/div[2]/nav/ul/li[1]/a
+${NaviNetOpen}                           	        xpath=//*[@id="node-1"]/div[2]/div/div/p[2]/a[1]
+${TransformTab}                                     xpath=//*[@id="block-menu-block-1"]/div/div/ul/li/ul/li[1]/a
+
+${SearchBox}                                        xpath=//*[@id="edit-combine"]
+
+
+### Css Variable ###
+${SolutionsCss}                                     li.first.expanded.dropdown a
+${SolutionsTag}                                     NaviNet Solutions
+
+
+### Xpath Variables ###
+${Contact}                                          //*[@id="navbar"]/div/div/div[3]/nav/ul/li[5]/a
+${ContactTag}                                       NaviNet Contact
+
+${Navbar}                                           //*[@id="navbar"]/div/div
+${NavbarWidth}                                      500
+${NavbarHeight}                                     120
+${NavbarTag}                                        NaviNet
+
+
+### Applitools Variables ###
+${Applitools-url}                                   http://www.navinet.net/
+${Applitools-AppName}                               RobotAppEyes_Test
+${Applitools-testname}                              NaviNet_RobotAppEyes_Test
+${Applitools-key}                                   YourApplitoolsKey
+${Width}                                            1024
+${Height}                                           768
+
+
+
+*** Test Cases ***
+
+NaviNet Test
+	Open Browser                                    ${Applitools-url}     gc
+	Open Eyes Session                               ${Applitools-url}     ${Applitools-AppName}    ${Applitools-testname}     ${Applitools-key}		${Width}		${Height}
+    Check Eyes Region                               ${Navbar}             ${NavbarWidth}           ${NavbarHeight}            ${NavbarTag}
+    NaviNet Home Page Check
+    Check Eyes Window                               NaviNet
+    NaviNet Solutions Check
+    Check Eyes Window                               NaviNet Solutions
+    Check Transform Payer-Provider Collaboration
+	Check Eyes Window                               Transform Payer-Provider Collaboration
+	Search for Open
+	Check Eyes Window                               Quick Search
+    Check Eyes Region By Element                    css     ${SolutionsCss}     ${SolutionsTag}
+    Check Eyes Region By Element                    xpath   ${Contact}          ${ContactTag}
+    [Teardown]     Session Teardown
+
+
+              ##### Examples of how to check the region by an element #####
+            # Check Eyes Region By Element                     xpath    ${Navbar}         NaviNet
+            # Check Eyes Region By Element                     css      ${SolutionsCss}   NaviNet
+            # Check Eyes Region By Element                     id       navbar            NaviNet
+            # Check Eyes Region By Element                     class    container         NaviNet
+
+*** Keywords ***
+
+NaviNet Home Page Check
+    Wait Until Page Contains Element                ${LoginButton}
+    Wait Until Page Contains Element                ${SupportButton}
+
+NaviNet Solutions Check
+    Click Element                                   ${SolutionsTab}
+    Wait Until Page Contains Element                ${NaviNetOpen}
+    Wait Until Page Contains                        Let Us Help You Navigate the Future
+
+Check Transform Payer-Provider Collaboration
+    Click Element                                   ${TransformTab}
+    Wait Until Page Contains                        Develop a New Network Technology Strategy
+
+Search for Open
+	Wait Until Page Contains Element                ${SearchBox}
+	Input Text                                      ${SearchBox}     Open
+
+Session Teardown
+    Run Keyword And Continue On Failure             Close Eyes Session
+    Close Browser
