@@ -28,12 +28,5 @@ class RobotAppEyes(RobotAppEyes):
     Robot-AppEyes is a visual verfication library for Robot Framework that leverages
     the Eyes-Selenium and Selenium2 libraries. 
 
-
-        Example:
-        | Open Browser       |  http://www.navinet.net/   | gc         |              |          |            |             |
-        | Open Eyes Session  |  http://www.navinet.net/   | ${AppName} |  ${testname} |  ${key}  |  ${width}  |  ${height}  |
-        | Check Eyes Window  |  NaviNet                   |            |              |          |            |             |
-        | Close Eyes Session |                            |            |              |          |            |             | 
-
     """
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'

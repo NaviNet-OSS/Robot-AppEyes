@@ -4,11 +4,12 @@ Library                                             RobotAppEyes
 
 *** Variables ***
 ### Selenium2Library Variables ###
-${LoginButton}                          	        xpath=//*[@id="block-block-7"]/div/ul/li[1]/a
-${SupportButton}                        	        xpath=//*[@id="block-block-7"]/div/ul/li[2]/a
+${Timeout}                                          15
+${LoginButton}                                      xpath=//*[@id="block-block-7"]/div/ul/li[1]/a
+${SupportButton}                                    xpath=//*[@id="block-block-7"]/div/ul/li[2]/a
 
-${SolutionsTab}                          	        xpath=//*[@id="navbar"]/div/div/div[2]/nav/ul/li[1]/a
-${NaviNetOpen}                           	        xpath=//*[@id="node-1"]/div[2]/div/div/p[2]/a[1]
+${SolutionsTab}                                     xpath=//*[@id="navbar"]/div/div/div[2]/nav/ul/li[1]/a
+${NaviNetOpen}                                      xpath=//*[@id="node-1"]/div[2]/div/div/p[2]/a[1]
 ${TransformTab}                                     xpath=//*[@id="block-menu-block-1"]/div/div/ul/li/ul/li[1]/a
 
 ${SearchBox}                                        xpath=//*[@id="edit-combine"]
@@ -19,21 +20,23 @@ ${SolutionsCss}                                     li.first.expanded.dropdown a
 ${SolutionsTag}                                     NaviNet Solutions
 
 
-### Xpath Variables ###
-${Contact}                                          //*[@id="navbar"]/div/div/div[3]/nav/ul/li[5]/a
+### Partial Link Text Variables ###
+${Contact}                                          CT
 ${ContactTag}                                       NaviNet Contact
 
+
+### Xpath Variables ###
 ${Navbar}                                           //*[@id="navbar"]/div/div
 ${NavbarWidth}                                      500
 ${NavbarHeight}                                     120
-${NavbarTag}                                        NaviNet
+${NavbarTag}                                        NaviNet Navbar
 
 
 ### Applitools Variables ###
 ${Applitools-url}                                   http://www.navinet.net/
 ${Applitools-AppName}                               RobotAppEyes_Test
-${Applitools-testname}                              NaviNet_RobotAppEyes_Test
-${Applitools-key}                                   YourApplitoolsKey
+${Applitools-TestName}                              NaviNet_RobotAppEyes_Test
+${Applitools-Key}                                   YourApplitoolsKey
 ${Width}                                            1024
 ${Height}                                           768
 
@@ -42,46 +45,58 @@ ${Height}                                           768
 *** Test Cases ***
 
 NaviNet Test
-	Open Browser                                    ${Applitools-url}     gc
-	Open Eyes Session                               ${Applitools-url}     ${Applitools-AppName}    ${Applitools-testname}     ${Applitools-key}		${Width}		${Height}
+    Open Browser                                    ${Applitools-url}     gc
+    Open Eyes Session                               ${Applitools-url}     ${Applitools-AppName}    ${Applitools-TestName}     ${Applitools-Key}		${Width}		${Height}
     Check Eyes Region                               ${Navbar}             ${NavbarWidth}           ${NavbarHeight}            ${NavbarTag}
     NaviNet Home Page Check
-    Check Eyes Window                               NaviNet
+    Check Eyes Window                               NaviNet Home
     NaviNet Solutions Check
     Check Eyes Window                               NaviNet Solutions
     Check Transform Payer-Provider Collaboration
-	Check Eyes Window                               Transform Payer-Provider Collaboration
-	Search for Open
-	Check Eyes Window                               Quick Search
-    Check Eyes Region By Element                    css     ${SolutionsCss}     ${SolutionsTag}
-    Check Eyes Region By Element                    xpath   ${Contact}          ${ContactTag}
+    Check Eyes Window                               Transform Payer-Provider Collaboration
+    Search for Open
+    Check Eyes Window                               Quick Search
+    Check Eyes Region By Element                    CSS SELECTOR        ${SolutionsCss}     ${SolutionsTag}
+    Check Eyes Region By Selector                   PARTIAL LINK TEXT   ${Contact}          ${ContactTag}
     [Teardown]     Session Teardown
 
 
               ##### Examples of how to check the region by an element #####
-            # Check Eyes Region By Element                     xpath    ${Navbar}         NaviNet
-            # Check Eyes Region By Element                     css      ${SolutionsCss}   NaviNet
-            # Check Eyes Region By Element                     id       navbar            NaviNet
-            # Check Eyes Region By Element                     class    container         NaviNet
+            # Check Eyes Region By Element                     XPATH             ${Navbar}         NaviNetXpathElement
+            # Check Eyes Region By Element                     CSS SELECTOR      ${SolutionsCss}   NaviNetCssElement
+            # Check Eyes Region By Element                     ID                navbar            NaviNetIdElement
+            # Check Eyes Region By Element                     CLASS NAME        container         NaviNetClassElement
+
+              ##### Examples of how to check the region by a selector #####
+            # Check Eyes Region By Selector                    CSS SELECTOR         .first.expanded.dropdown              NaviNetCssElement
+            # Check Eyes Region By Selector                    XPATH                //*[@id="navbar"]/div/div/a/img       NaviNetXpathElement
+            # Check Eyes Region By Selector                    ID                   navbar                                NaviNetIdElement
+            # Check Eyes Region By Selector                    LINK TEXT            RESOURCES                             NaviNetLinkTextElement
+            # Check Eyes Region By Selector                    PARTIAL LINK TEXT    CT                                    NaviNetPartialLinkTextElement
+            # Check Eyes Region By Selector                    TAG NAME             a                                     NaviNetTagElement 
+            # Check Eyes Region By Selector                    CLASS NAME           navbar-search                         NaviNetClassElement
+
+              ##### NOTE: The NaviNet website had no NAME selector so https://www.google.co.uk/ was used for this example #####
+            # Check Eyes Region By Selector                    NAME                 gbqf                                  NaviNetNameElement
 
 *** Keywords ***
 
 NaviNet Home Page Check
-    Wait Until Page Contains Element                ${LoginButton}
-    Wait Until Page Contains Element                ${SupportButton}
+    Wait Until Page Contains Element                ${LoginButton}      ${Timeout}
+    Wait Until Page Contains Element                ${SupportButton}    ${Timeout}
 
 NaviNet Solutions Check
     Click Element                                   ${SolutionsTab}
-    Wait Until Page Contains Element                ${NaviNetOpen}
-    Wait Until Page Contains                        Let Us Help You Navigate the Future
+    Wait Until Page Contains Element                ${NaviNetOpen}      ${Timeout}
+    Wait Until Page Contains                        Let Us Help You Navigate the Future           ${Timeout}
 
 Check Transform Payer-Provider Collaboration
     Click Element                                   ${TransformTab}
-    Wait Until Page Contains                        Develop a New Network Technology Strategy
+    Wait Until Page Contains                        Develop a New Network Technology Strategy     ${Timeout}
 
 Search for Open
-	Wait Until Page Contains Element                ${SearchBox}
-	Input Text                                      ${SearchBox}     Open
+    Wait Until Page Contains Element                ${SearchBox}     ${Timeout}
+    Input Text                                      ${SearchBox}     Open
 
 Session Teardown
     Run Keyword And Continue On Failure             Close Eyes Session

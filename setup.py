@@ -39,4 +39,5 @@ setup(name              = 'RobotAppEyes',
 				],
       packages          = ['RobotAppEyes'],
       data_files        = [('atests', ['atests/RobotAppEyesTest.txt', 'doc/RobotAppEyesDoc.html'])],
+      download_url      = 'https://github.com/NaviNet/Robot-AppEyes/tarball/1.0',
       )
