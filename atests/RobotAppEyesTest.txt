@@ -15,7 +15,7 @@ ${TransformTab}                                     xpath=//*[@id="block-menu-bl
 ${SearchBox}                                        xpath=//*[@id="edit-combine"]
 
 
-### Css Variable ###
+### Css Variables ###
 ${SolutionsCss}                                     li.first.expanded.dropdown a
 ${SolutionsTag}                                     NaviNet Solutions
 

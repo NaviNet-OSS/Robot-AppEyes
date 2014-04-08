@@ -43,7 +43,7 @@ Notice that using ``--upgrade`` above updates both the library and all
 its dependencies to the latest version. If you want, you can also install
 a specific version or upgrade only the Selenium tool used by the library
 
-    pin install Robot-AppEyes==1.0
+    pip install Robot-AppEyes==1.0
     pip install --upgrade Robot-AppEyes
     pip install Robot-AppEyes==1.0
 
