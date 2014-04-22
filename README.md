@@ -9,11 +9,9 @@ Robot-AppEyes is a Robot Framework Library that uses the Python SDK [Eyes-Seleni
 
 The Robot-AppEyes library is the result of our initial proof of concept with the [Applitools Eyes](http://applitools.com/) tool to automate visual software testing. In order to use the Robot-AppEyes library, you are required to [sign up](https://applitools.com/sign-up/) for a free account with Applitools, further information around this can be found below in the [Usage](https://github.com/NaviNet/Robot-AppEyes#usage) section.
 
-As new features are released by Applitools and we will endeavour to add these to this library and make them publicly available as soon as possible.
-
 - More information about the keywords in this library can be found on the [RobotAppEyesDoc](https://github.com/NaviNet/Robot-AppEyes/doc/RobotAppEyesDoc.html) page.
 - The [Eyes Selenium](https://pypi.python.org/pypi/eyes-selenium/1.15) page will provide more information for that library.
-- More information about the Selenium2library can be found on the [Wiki](https://github.com/rtomac/robotframework-selenium2library/wiki) and in the [Keyword Documentation](http://rtomac.github.com/robotframework-selenium2library/doc/Selenium2Library.html).
+- More information about the Selenium2library can be found on the [Selenium2Library Wiki](https://github.com/rtomac/robotframework-selenium2library/wiki) and in the [Keyword Documentation](http://rtomac.github.com/robotframework-selenium2library/doc/Selenium2Library.html).
 
 Requirements
 ------------
@@ -40,8 +38,7 @@ and support for un-installation
     pip uninstall Robot-AppEyes
 
 Notice that using ``--upgrade`` above updates both the library and all
-its dependencies to the latest version. If you want, you can also install
-a specific version or upgrade only the Selenium tool used by the library
+its dependencies to the latest version.
 
     pip install Robot-AppEyes==1.0
     pip install --upgrade Robot-AppEyes
@@ -111,7 +108,7 @@ The test file RobotAppEyesTest.txt, is an easily executable test for Robot Frame
 For in depth detail on how the keywords function, read the Keyword documentation found in *doc/RobotAppEyesDoc.html*
 
 **Remember to include your Applitools API key otherwise the
-test will not run.** To run the test navigate to the atests directory found in your C:\Python folder. Open a command prompt within the atests folder and run
+test will not run.** To run the test navigate to the atests directory found in your C:\Python folder. Open a command prompt within the */Tests/acceptance* folder and run
 
     pybot RobotAppEyesTest.txt
 
