@@ -62,10 +62,10 @@ NaviNet Test
 
 
               ##### Examples of how to check the region by an element #####
-            # Check Eyes Region By Element                     XPATH             ${Navbar}         NaviNetXpathElement
-            # Check Eyes Region By Element                     CSS SELECTOR      ${SolutionsCss}   NaviNetCssElement
-            # Check Eyes Region By Element                     ID                navbar            NaviNetIdElement
-            # Check Eyes Region By Element                     CLASS NAME        container         NaviNetClassElement
+            # Check Eyes Region By Element                     XPATH                ${Navbar}         NaviNetXpathElement
+            # Check Eyes Region By Element                     CSS SELECTOR         ${SolutionsCss}   NaviNetCssElement
+            # Check Eyes Region By Element                     ID                   navbar            NaviNetIdElement
+            # Check Eyes Region By Element                     CLASS NAME           container         NaviNetClassElement
 
               ##### Examples of how to check the region by a selector #####
             # Check Eyes Region By Selector                    CSS SELECTOR         .first.expanded.dropdown              NaviNetCssElement
