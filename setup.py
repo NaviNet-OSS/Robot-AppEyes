@@ -52,6 +52,6 @@ setup(name              = 'RobotAppEyes',
 							'eyes-selenium >= 1.15'
 				],
       packages          = ['RobotAppEyes'],
-      data_files        = [('Tests', ['Tests/acceptance/RobotAppEyesTest.txt', 'doc/RobotAppEyesDoc.html'])],
+      data_files        = [('Tests', ['Tests/acceptance/RobotAppEyesTest.txt', 'doc/RobotAppEyes-KeywordDocumentation.html'])],
       download_url      = 'https://github.com/NaviNet/Robot-AppEyes/tarball/1.0',
       )
