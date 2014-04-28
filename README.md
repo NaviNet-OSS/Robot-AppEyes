@@ -54,16 +54,16 @@ To uninstall Robot-AppEyes use the following pip command:
 
   Eyes-selenium dependencies
 
-   - [https://pypi.python.org/pypi/setuptools](https://pypi.python.org/pypi/setuptools)
-   - [https://pypi.python.org/pypi/requests](https://pypi.python.org/pypi/requests/2.2.1)
-   - [https://pypi.python.org/pypi/pypng](https://pypi.python.org/pypi/pypng/0.0.16)
-   - [https://pypi.python.org/pypi/selenium](https://pypi.python.org/pypi/selenium/2.39.0)
+  - [https://pypi.python.org/pypi/setuptools](https://pypi.python.org/pypi/setuptools)
+  - [https://pypi.python.org/pypi/requests](https://pypi.python.org/pypi/requests/2.2.1)
+  - [https://pypi.python.org/pypi/pypng](https://pypi.python.org/pypi/pypng/0.0.16)
+  - [https://pypi.python.org/pypi/selenium](https://pypi.python.org/pypi/selenium/2.39.0)
 
   Robot-AppEyes and dependencies
 
-   - [https://pypi.python.org/pypi/Robot-AppEyes](https://pypi.python.org/pypi/Robot-AppEyes)
-   - [https://pypi.python.org/pypi/eyes-selenium](https://pypi.python.org/pypi/eyes-selenium/1.15)
-   - [https://pypi.python.org/pypi/robotframework-selenium2library](https://pypi.python.org/pypi/robotframework-selenium2library/1.5.0)
+  - [https://pypi.python.org/pypi/Robot-AppEyes](https://pypi.python.org/pypi/Robot-AppEyes)
+  - [https://pypi.python.org/pypi/eyes-selenium](https://pypi.python.org/pypi/eyes-selenium/1.15)
+  - [https://pypi.python.org/pypi/robotframework-selenium2library](https://pypi.python.org/pypi/robotframework-selenium2library/1.5.0)
 
 3) Extract each source distribution to a temporary location using 7zip (or your preferred zip program).
 
