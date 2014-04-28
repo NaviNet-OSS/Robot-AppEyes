@@ -30,19 +30,19 @@ The recommended installation method is using
 
     pip install Robot-AppEyes
 
-The main benefit of using ``pip`` is that it automatically installs all
-dependencies needed by the library. Other useful features are easy upgrading
-and support for un-installation
-
-    pip install --upgrade Robot-AppEyes
-    pip uninstall Robot-AppEyes
-
 Notice that using ``--upgrade`` above updates both the library and all
 its dependencies to the latest version.
-
-    pip install Robot-AppEyes
+    
     pip install --upgrade Robot-AppEyes
 
+Or to install a specific version use:
+
+    pip install Robot-AppEyes==(DesiredVersion)
+
+To uninstall Robot-AppEyes use the following pip command:
+  
+    pip uninstall Robot-AppEyes
+ 
 #### Manual installation ####
 
  A manual install requires first installing all the dependency libraries and then the Robot-Appeyes library manually
