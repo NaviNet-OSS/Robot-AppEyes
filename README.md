@@ -7,9 +7,9 @@ Introduction
 
 Robot-AppEyes is a Robot Framework Library that uses the Python SDK [Eyes-Selenium](https://pypi.python.org/pypi/eyes-selenium) from the tool [Applitools Eyes](http://applitools.com/), providing visual verification that can be used with the [Selenium2Library](https://github.com/rtomac/robotframework-selenium2library).
 
-The Robot-AppEyes library is the result of our initial proof of concept with the [Applitools Eyes](http://applitools.com/) tool to automate visual software testing. In order to use the Robot-AppEyes library, you are required to [sign up](https://applitools.com/sign-up/) for a free account with Applitools, further information around this can be found below in the [Usage](https://github.com/NaviNet/Robot-AppEyes#usage) section.
+The Robot-AppEyes library is the result of our work with the [Applitools Eyes](http://applitools.com/) tool to automate visual software testing. In order to use the Robot-AppEyes library, you are required to [sign up](https://applitools.com/sign-up/) for a free account with Applitools, further information around this can be found below in the [Usage](https://github.com/NaviNet/Robot-AppEyes#usage) section.
 
-- More information about the keywords in this library can be found on the [RobotAppEyesDoc](https://github.com/NaviNet/Robot-AppEyes/doc/RobotAppEyesDoc.html) page.
+- More information about the keywords in this library can be found on the [RobotAppEyesDoc](http://navinet.github.io/Robot-AppEyes/RobotAppEyes-KeywordDocumentation.html) page.
 - The [Eyes Selenium](https://pypi.python.org/pypi/eyes-selenium/1.15) page will provide more information for that library.
 - More information about the Selenium2library can be found on the [Selenium2Library Wiki](https://github.com/rtomac/robotframework-selenium2library/wiki) and in the [Keyword Documentation](http://rtomac.github.com/robotframework-selenium2library/doc/Selenium2Library.html).
 
@@ -80,7 +80,7 @@ Directory Layout
 *tests/acceptance/RobotAppEyesTest.txt* :
     Example test file to display what various keywords from Robot-AppEyes Library accomplish
 
-*doc/RobotAppEyesDoc.html* :
+*doc/RobotAppEyes-KeywordDocumentation.html* :
     Keyword documentation for the Robot-AppEyes library.
 
 
@@ -103,7 +103,7 @@ Running the Demo
 ----------------
 
 The test file RobotAppEyesTest.txt, is an easily executable test for Robot Framework using Robot-AppEyes Library. 
-For in depth detail on how the keywords function, read the Keyword documentation found in *doc/RobotAppEyesDoc.html*
+For in depth detail on how the keywords function, read the Keyword documentation found here : [Keyword Documentation](http://navinet.github.io/Robot-AppEyes/RobotAppEyes-KeywordDocumentation.html)
 
 **Remember to include your Applitools API key otherwise the
 test will not run.** To run the test navigate to the atests directory found in your C:\Python folder. Open a command prompt within the *tests/acceptance* folder and run
