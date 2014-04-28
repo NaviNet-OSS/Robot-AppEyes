@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Robot-appeyes : Robot Framework Visual Verification Test Library using Applitools Eyes" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Robot-appeyes</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/NaviNet/Robot-AppEyes">View on GitHub</a>
+
+          <h1 id="project_title">Robot-appeyes</h1>
+          <h2 id="project_tagline">Robot Framework Visual Verification Test Library using Applitools Eyes</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/NaviNet/Robot-AppEyes/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/NaviNet/Robot-AppEyes/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="robot-appeyes-library-for-robot-framework" class="anchor" href="#robot-appeyes-library-for-robot-framework"><span class="octicon octicon-link"></span></a>Robot-AppEyes library for Robot Framework</h1>
+
+<h2>
+<a name="introduction" class="anchor" href="#introduction"><span class="octicon octicon-link"></span></a>Introduction</h2>
+
+<p>Robot-AppEyes is a Robot Framework Library that uses the Python SDK <a href="https://pypi.python.org/pypi/eyes-selenium">Eyes-Selenium</a> from the tool <a href="http://applitools.com/">Applitools Eyes</a>, providing visual verification that can be used with the <a href="https://github.com/rtomac/robotframework-selenium2library">Selenium2Library</a>.</p>
+
+<p>The Robot-AppEyes library is the result of our initial proof of concept with the <a href="http://applitools.com/">Applitools Eyes</a> tool to automate visual software testing. In order to use the Robot-AppEyes library, you are required to <a href="https://applitools.com/sign-up/">sign up</a> for a free account with Applitools, further information around this can be found below in the <a href="https://github.com/NaviNet/Robot-AppEyes#usage">Usage</a> section.</p>
+
+<ul>
+<li>More information about the keywords in this library can be found on the <a href="https://github.com/NaviNet/Robot-AppEyes/doc/RobotAppEyesDoc.html">RobotAppEyesDoc</a> page.</li>
+<li>The <a href="https://pypi.python.org/pypi/eyes-selenium/1.15">Eyes Selenium</a> page will provide more information for that library.</li>
+<li>More information about the Selenium2library can be found on the <a href="https://github.com/rtomac/robotframework-selenium2library/wiki">Selenium2Library Wiki</a> and in the <a href="http://rtomac.github.com/robotframework-selenium2library/doc/Selenium2Library.html">Keyword Documentation</a>.</li>
+</ul><h2>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<ul>
+<li>Python 2.7.4 (Newer versions not tested)</li>
+<li>Robot Framework 2.8.3 (Newer versions not tested)</li>
+<li>Selenium2Library 1.5 (Newer versions not tested)</li>
+<li>Eyes-Selenium 1.15 (Newer versions not tested). The downloads can be found <a href="https://pypi.python.org/pypi/eyes-selenium/1.15">here</a> or pip install eyes-selenium can be used.</li>
+</ul><h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<h4>
+<a name="using-pip" class="anchor" href="#using-pip"><span class="octicon octicon-link"></span></a>Using pip</h4>
+
+<p>The recommended installation method is using
+<a href="http://pip-installer.org">pip</a></p>
+
+<pre><code>pip install Robot-AppEyes
+</code></pre>
+
+<p>Notice that using <code>--upgrade</code> above updates both the library and all
+its dependencies to the latest version.</p>
+
+<pre><code>pip install --upgrade Robot-AppEyes
+</code></pre>
+
+<p>Or to install a specific version use:</p>
+
+<pre><code>pip install Robot-AppEyes==(DesiredVersion)
+</code></pre>
+
+<p>To uninstall Robot-AppEyes use the following pip command:</p>
+
+<pre><code>pip uninstall Robot-AppEyes
+</code></pre>
+
+<h4>
+<a name="manual-installation" class="anchor" href="#manual-installation"><span class="octicon octicon-link"></span></a>Manual installation</h4>
+
+<p>A manual install requires first installing all the dependency libraries and then the Robot-Appeyes library manually</p>
+
+<p>1) Make sure you have <a href="http://code.google.com/p/robotframework/wiki/Installation">Robot Framework installed</a></p>
+
+<p>2) Download source distributions (<code>*.tar.gz</code> / <code>*.zip</code>) for the library and its
+   dependencies</p>
+
+<p>Eyes-selenium dependencies</p>
+
+<ul>
+<li><a href="https://pypi.python.org/pypi/setuptools">https://pypi.python.org/pypi/setuptools</a></li>
+<li><a href="https://pypi.python.org/pypi/requests/2.2.1">https://pypi.python.org/pypi/requests</a></li>
+<li><a href="https://pypi.python.org/pypi/pypng/0.0.16">https://pypi.python.org/pypi/pypng</a></li>
+<li>
+<p><a href="https://pypi.python.org/pypi/selenium/2.39.0">https://pypi.python.org/pypi/selenium</a></p>
+
+<p>Robot-AppEyes and dependencies</p>
+</li>
+<li><p><a href="https://pypi.python.org/pypi/Robot-AppEyes">https://pypi.python.org/pypi/Robot-AppEyes</a></p></li>
+<li><a href="https://pypi.python.org/pypi/eyes-selenium/1.15">https://pypi.python.org/pypi/eyes-selenium</a></li>
+<li><a href="https://pypi.python.org/pypi/robotframework-selenium2library/1.5.0">https://pypi.python.org/pypi/robotframework-selenium2library</a></li>
+</ul><p>3) Extract each source distribution to a temporary location using 7zip (or your preferred zip program).</p>
+
+<p>4) Open command line and go to each directory that was created from extraction and install each project using:</p>
+
+<pre><code>   python setup.py install
+</code></pre>
+
+<h2>
+<a name="directory-layout" class="anchor" href="#directory-layout"><span class="octicon octicon-link"></span></a>Directory Layout</h2>
+
+<p><em>RobotAppEyes/RobotAppEyes.py</em> :
+    The Robot Python Library that makes use of the Applitools Eyes Python SDK.</p>
+
+<p><em>tests/acceptance/RobotAppEyesTest.txt</em> :
+    Example test file to display what various keywords from Robot-AppEyes Library accomplish</p>
+
+<p><em>doc/RobotAppEyesDoc.html</em> :
+    Keyword documentation for the Robot-AppEyes library.</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>To write tests with Robot Framework and Robot-AppEyes, 
+RobotAppEyes must be imported into your Robot test suite.
+See <a href="http://code.google.com/p/robotframework/wiki/UserGuide">Robot Framework User Guide</a> for more information.</p>
+
+<p><strong>Important</strong> - You have to create a <a href="https://applitools.com/sign-up/">free account</a> with Applitools in order to run the 
+            Robot-AppEyes library and return results. The Applitools site will
+            allow you to sign up and you will then be provide with your own API key.
+            This will then need to be added to the Robot test file RoboAppEyesTest.txt,
+            within the variable ${Applitools-Key}, remove 'YourApplitoolsKey' and replace with your API Key.</p>
+
+<h2>
+<a name="running-the-demo" class="anchor" href="#running-the-demo"><span class="octicon octicon-link"></span></a>Running the Demo</h2>
+
+<p>The test file RobotAppEyesTest.txt, is an easily executable test for Robot Framework using Robot-AppEyes Library. 
+For in depth detail on how the keywords function, read the Keyword documentation found in <em>doc/RobotAppEyesDoc.html</em></p>
+
+<p><strong>Remember to include your Applitools API key otherwise the
+test will not run.</strong> To run the test navigate to the atests directory found in your C:\Python folder. Open a command prompt within the <em>tests/acceptance</em> folder and run</p>
+
+<pre><code>pybot RobotAppEyesTest.txt
+</code></pre>
+
+<p><strong>Note:</strong> It is assumed that anyone who wants to use this demo script is already able to execute robot tests using Google Chrome.</p>
+
+<h2>
+<a name="things-to-note-when-using-applitools" class="anchor" href="#things-to-note-when-using-applitools"><span class="octicon octicon-link"></span></a>Things to Note When Using Applitools</h2>
+
+<ul>
+<li>The RobotAppEyesTest.txt test will fail after the first run, this is because a baseline is being created and will be accepted automatically by Applitools Eyes. A second test run will show a successful comparison between screens and the test will pass.</li>
+<li>Changing the ${Applitools-AppName} variable value will create a new test entry in Applitools test result screen and a new baseline will be accepted automatically by Applitools Eyes on the first run.</li>
+<li>The Height resolution should not be greater than 1000, this is currently Applitools maximum setting.</li>
+<li>Browser zoom should be set to 100%.</li>
+</ul><h2>
+<a name="getting-help" class="anchor" href="#getting-help"><span class="octicon octicon-link"></span></a>Getting Help</h2>
+
+<p>The <a href="http://groups.google.com/group/robotframework-users">user group for Robot Framework</a> is the best place to get help. Include in the post:</p>
+
+<ul>
+<li>Full description of what you are trying to do and expected outcome</li>
+<li>Version number of Robot-AppEyes, Robot Framework, and Selenium2Library</li>
+<li>Traceback or other debug output containing error information</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Robot-appeyes maintained by <a href="https://github.com/NaviNet">NaviNet</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
