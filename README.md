@@ -40,32 +40,30 @@ and support for un-installation
 Notice that using ``--upgrade`` above updates both the library and all
 its dependencies to the latest version.
 
-    pip install Robot-AppEyes==1.0
+    pip install Robot-AppEyes
     pip install --upgrade Robot-AppEyes
-    pip install Robot-AppEyes==1.0
 
 #### Manual installation ####
 
-If you do not have network connection or cannot get the proxy to work, you need
-to resort to manual installation. This requires installing both the library
-and its dependencies yourself.
+ A manual install requires first installing all the dependency libraries and then the Robot-Appeyes library manually
 
 1) Make sure you have [Robot Framework installed](http://code.google.com/p/robotframework/wiki/Installation)
 
 2) Download source distributions (``*.tar.gz`` / ``*.zip``) for the library and its
    dependencies
 
-   - [https://pypi.python.org/pypi/Robot-AppEyes](https://pypi.python.org/pypi/Robot-AppEyes)
-   - [https://pypi.python.org/pypi/eyes-selenium](https://pypi.python.org/pypi/eyes-selenium/1.15)
-   - [https://pypi.python.org/pypi/robotframework-selenium2library](https://pypi.python.org/pypi/robotframework-selenium2library/1.5.0)
-
-Eyes-selenium dependencies
-
+  Eyes-selenium dependencies
 
    - [https://pypi.python.org/pypi/setuptools](https://pypi.python.org/pypi/setuptools)
    - [https://pypi.python.org/pypi/requests](https://pypi.python.org/pypi/requests/2.2.1)
    - [https://pypi.python.org/pypi/pypng](https://pypi.python.org/pypi/pypng/0.0.16)
    - [https://pypi.python.org/pypi/selenium](https://pypi.python.org/pypi/selenium/2.39.0)
+
+  Robot-AppEyes and dependencies
+
+   - [https://pypi.python.org/pypi/Robot-AppEyes](https://pypi.python.org/pypi/Robot-AppEyes)
+   - [https://pypi.python.org/pypi/eyes-selenium](https://pypi.python.org/pypi/eyes-selenium/1.15)
+   - [https://pypi.python.org/pypi/robotframework-selenium2library](https://pypi.python.org/pypi/robotframework-selenium2library/1.5.0)
 
 3) Extract each source distribution to a temporary location using 7zip (or your preferred zip program).
 
@@ -79,7 +77,7 @@ Directory Layout
 *RobotAppEyes/RobotAppEyes.py* :
     The Robot Python Library that makes use of the Applitools Eyes Python SDK.
 
-*atests/RobotAppEyesTest.txt* :
+*tests/acceptance/RobotAppEyesTest.txt* :
     Example test file to display what various keywords from Robot-AppEyes Library accomplish
 
 *doc/RobotAppEyesDoc.html* :
@@ -108,7 +106,7 @@ The test file RobotAppEyesTest.txt, is an easily executable test for Robot Frame
 For in depth detail on how the keywords function, read the Keyword documentation found in *doc/RobotAppEyesDoc.html*
 
 **Remember to include your Applitools API key otherwise the
-test will not run.** To run the test navigate to the atests directory found in your C:\Python folder. Open a command prompt within the */Tests/acceptance* folder and run
+test will not run.** To run the test navigate to the atests directory found in your C:\Python folder. Open a command prompt within the *tests/acceptance* folder and run
 
     pybot RobotAppEyesTest.txt
 
