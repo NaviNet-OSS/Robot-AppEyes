@@ -36,17 +36,21 @@ ${NavbarTag}                                        NaviNet Navbar
 ${Applitools-url}                                   http://www.navinet.net/
 ${Applitools-AppName}                               RobotAppEyes_Test
 ${Applitools-TestName}                              NaviNet_RobotAppEyes_Test
-${Applitools-Key}                                   YourApplitoolsKey
+${Applitools-Key}                                   khdJQW103DVA2X2izw98c3b396J2Vz6AurnqpMl103BHHGX8110
 ${Width}                                            1024
 ${Height}                                           768
+
+${OSOverride}                                       OSOverride
+${BrowserOverride}                                  BrowserOverride
+${MatchLevel}                                       LAYOUT
 
 
 
 *** Test Cases ***
 
-NaviNet Test
+RobotAppEyes 1.0 Test
     Open Browser                                    ${Applitools-url}     gc
-    Open Eyes Session                               ${Applitools-url}     ${Applitools-AppName}    ${Applitools-TestName}     ${Applitools-Key}		${Width}		${Height}
+    Open Eyes Session                               ${Applitools-url}     ${Applitools-AppName}    ${Applitools-TestName}1.0     ${Applitools-Key}		width=${Width}		height=${Height}
     Check Eyes Region                               ${Navbar}             ${NavbarWidth}           ${NavbarHeight}            ${NavbarTag}
     NaviNet Home Page Check
     Check Eyes Window                               NaviNet Home
@@ -62,32 +66,44 @@ NaviNet Test
 
 
               ##### Examples of how to check the region by an element #####
-            # Check Eyes Region By Element                     XPATH                ${Navbar}         NaviNetXpathElement
-            # Check Eyes Region By Element                     CSS SELECTOR         ${SolutionsCss}   NaviNetCssElement
-            # Check Eyes Region By Element                     ID                   navbar            NaviNetIdElement
-            # Check Eyes Region By Element                     CLASS NAME           container         NaviNetClassElement
+            # Check Eyes Region By Element                     XPATH                ${Navbar}                               NaviNetXpathElement
+            # Check Eyes Region By Element                     CSS SELECTOR         ${SolutionsCss}                         NaviNetCssElement
+            # Check Eyes Region By Element                     ID                   navbar                                  NaviNetIdElement
+            # Check Eyes Region By Element                     CLASS NAME           container                               NaviNetClassElement
 
               ##### Examples of how to check the region by a selector #####
-            # Check Eyes Region By Selector                    CSS SELECTOR         .first.expanded.dropdown              NaviNetCssElement
-            # Check Eyes Region By Selector                    XPATH                //*[@id="navbar"]/div/div/a/img       NaviNetXpathElement
-            # Check Eyes Region By Selector                    ID                   navbar                                NaviNetIdElement
-            # Check Eyes Region By Selector                    LINK TEXT            RESOURCES                             NaviNetLinkTextElement
-            # Check Eyes Region By Selector                    PARTIAL LINK TEXT    CT                                    NaviNetPartialLinkTextElement
-            # Check Eyes Region By Selector                    TAG NAME             a                                     NaviNetTagElement 
-            # Check Eyes Region By Selector                    CLASS NAME           navbar-search                         NaviNetClassElement
+            # Check Eyes Region By Selector                    CSS SELECTOR         .first.expanded.dropdown                NaviNetCssElement
+            # Check Eyes Region By Selector                    XPATH                //*[@id="navbar"]/div/div/a/img         NaviNetXpathElement
+            # Check Eyes Region By Selector                    ID                   navbar                                  NaviNetIdElement
+            # Check Eyes Region By Selector                    LINK TEXT            RESOURCES                               NaviNetLinkTextElement
+            # Check Eyes Region By Selector                    PARTIAL LINK TEXT    CT                                      NaviNetPartialLinkTextElement
+            # Check Eyes Region By Selector                    TAG NAME             a                                       NaviNetTagElement 
+            # Check Eyes Region By Selector                    CLASS NAME           navbar-search                           NaviNetClassElement
 
               ##### NOTE: The NaviNet website had no NAME selector so https://www.google.co.uk/ was used for this example #####
             # Check Eyes Region By Selector                    NAME                 gbqf                                  NaviNetNameElement
 
+RobotAppEyes 1.1 Test
+    Open Browser                                    ${Applitools-url}     gc
+    Open Eyes Session                               ${Applitools-url}     ${Applitools-AppName}    ${Applitools-TestName}1.1     ${Applitools-Key}     width=${Width}       height=${Height}        osname=${OSOverride}     browsername=${BrowserOverride}      match_level=${MatchLevel}
+    ${isOpen}=                                      Eyes Session Is Open 
+    Log                                             ${isOpen}
+    Compare Image                                   1.png                 Test Image Name
+    Check Eyes Region                               ${Navbar}             ${NavbarWidth}           ${NavbarHeight}            ${NavbarTag}
+    NaviNet Home Page Check
+    Check Eyes Window                               NaviNet Home
+    Check Eyes Window                               NaviNet Home          force_full_page_screenshot=True
+    [Teardown]      Session Teardown
+
 *** Keywords ***
 
 NaviNet Home Page Check
-    Wait Until Page Contains Element                ${LoginButton}      ${Timeout}
-    Wait Until Page Contains Element                ${SupportButton}    ${Timeout}
+    Wait Until Page Contains Element                ${LoginButton}       ${Timeout}
+    Wait Until Page Contains Element                ${SupportButton}     ${Timeout}
 
 NaviNet Solutions Check
     Click Element                                   ${SolutionsTab}
-    Wait Until Page Contains Element                ${NaviNetOpen}      ${Timeout}
+    Wait Until Page Contains Element                ${NaviNetOpen}       ${Timeout}
     Wait Until Page Contains                        Let Us Help You Navigate the Future           ${Timeout}
 
 Check Transform Payer-Provider Collaboration
@@ -95,8 +111,8 @@ Check Transform Payer-Provider Collaboration
     Wait Until Page Contains                        Develop a New Network Technology Strategy     ${Timeout}
 
 Search for Open
-    Wait Until Page Contains Element                ${SearchBox}     ${Timeout}
-    Input Text                                      ${SearchBox}     Open
+    Wait Until Page Contains Element                ${SearchBox}         ${Timeout}
+    Input Text                                      ${SearchBox}         Open
 
 Session Teardown
     Run Keyword And Continue On Failure             Close Eyes Session

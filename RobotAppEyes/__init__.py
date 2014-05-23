@@ -14,8 +14,7 @@
 #  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
-
-from RobotAppEyes import *
+from RobotAppEyes import RobotAppEyes
 from version import VERSION
 
 _version_ = VERSION
@@ -24,7 +23,6 @@ _version_ = VERSION
 class RobotAppEyes(RobotAppEyes):
     """
     Robot-AppEyes is a visual verfication library for Robot Framework that leverages
-    the Eyes-Selenium and Selenium2 libraries. 
-
+    the Eyes-Selenium and Selenium2 libraries.
     """
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'

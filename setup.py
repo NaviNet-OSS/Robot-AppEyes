@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 #  Copyright 2013-2014 NaviNet Inc.
-# 
+#
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
 #  You may obtain a copy of the License at
@@ -27,7 +27,7 @@ Robot-AppEyes is a visual verfication library for Robot Framework
 that leverages the Eyes-Selenium and Selenium2 libraries.
 """[1:-1]
 
-setup(name              = 'RobotAppEyes',
+setup(name              = 'Robot-AppEyes',
       version           = VERSION,
       description       = 'Visual Verification testing library for Robot Framework',
       long_description  = DESCRIPTION,
@@ -47,11 +47,11 @@ setup(name              = 'RobotAppEyes',
                               "Topic :: Software Development :: Quality Assurance"
                         ],
       install_requires  = [
-							'robotframework >= 2.8.3',
+							'robotframework >= 2.8.4',
 							'robotframework-selenium2library >= 1.5.0',
-							'eyes-selenium >= 1.15'
+							'eyes-selenium >= 1.31'
 				],
       packages          = ['RobotAppEyes'],
-      data_files        = [('Tests', ['Tests/acceptance/RobotAppEyesTest.txt', 'doc/RobotAppEyes-KeywordDocumentation.html'])],
-      download_url      = 'https://github.com/NaviNet/Robot-AppEyes/tarball/1.0',
+      data_files        = [('Tests', ['Tests/acceptance/RobotAppEyesTest.txt', 'Tests/acceptance/1.png', 'Tests/acceptance/2.png', 'doc/RobotAppEyes-KeywordDocumentation.html', 'doc/ChangeLog.txt'])],
+      download_url      = 'https://github.com/NaviNet/Robot-AppEyes/tarball/1.1',
       )
