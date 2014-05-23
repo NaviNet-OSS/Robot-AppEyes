@@ -43,16 +43,16 @@
 
 <ul>
 <li>Information about Robot-AppEyes keywords can be found on the <a href="http://navinet.github.io/Robot-AppEyes/RobotAppEyes-KeywordDocumentation.html">RobotAppEyes-Keyword Documentation</a> page.</li>
-<li>The <a href="https://pypi.python.org/pypi/eyes-selenium/1.15">Eyes Selenium</a> page provides more information for that library.</li>
+<li>The <a href="https://pypi.python.org/pypi/eyes-selenium/1.31">Eyes Selenium</a> page provides more information for that library.</li>
 <li>More information about the Selenium2library can be found on the <a href="https://github.com/rtomac/robotframework-selenium2library/wiki">Selenium2Library Wiki</a> and in the <a href="http://rtomac.github.com/robotframework-selenium2library/doc/Selenium2Library.html">Keyword Documentation</a>.</li>
 </ul><h2>
 <a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
 
 <ul>
 <li>Python 2.7.4 (Newer versions not tested)</li>
-<li>Robot Framework 2.8.3 (Newer versions not tested)</li>
+<li>Robot Framework 2.8.4 (Newer versions not tested)</li>
 <li>Selenium2Library 1.5 (Newer versions not tested)</li>
-<li>Eyes-Selenium 1.15 (Newer versions not tested). Access the downloads <a href="https://pypi.python.org/pypi/eyes-selenium/1.15">here</a>, or use pip install eyes-selenium.</li>
+<li>Eyes-Selenium 1.31 (Newer versions not tested). Access the downloads <a href="https://pypi.python.org/pypi/eyes-selenium/1.31">here</a>, or use pip install eyes-selenium.</li>
 </ul><h2>
 <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
 
@@ -67,7 +67,7 @@ Enter the following:</p>
 <pre><code>pip install Robot-AppEyes
 </code></pre>
 
-<p>Append <code>--upgrade</code> to update both the library and all
+<p>Append <code>--upgrade</code> to update both the library and all 
 its dependencies to the latest version:</p>
 
 <pre><code>pip install --upgrade Robot-AppEyes
@@ -76,11 +76,6 @@ its dependencies to the latest version:</p>
 <p>To install a specific version enter:</p>
 
 <pre><code>pip install Robot-AppEyes==(DesiredVersion)
-</code></pre>
-
-<p>To uninstall Robot-AppEyes use the following pip command:</p>
-
-<pre><code>pip uninstall Robot-AppEyes
 </code></pre>
 
 <h4>
@@ -100,12 +95,12 @@ its dependencies to the latest version:</p>
 <li><a href="https://pypi.python.org/pypi/requests/2.2.1">https://pypi.python.org/pypi/requests</a></li>
 <li><a href="https://pypi.python.org/pypi/pypng/0.0.16">https://pypi.python.org/pypi/pypng</a></li>
 <li>
-<p><a href="https://pypi.python.org/pypi/selenium/2.39.0">https://pypi.python.org/pypi/selenium</a></p>
+<p><a href="https://pypi.python.org/pypi/selenium/2.41.0">https://pypi.python.org/pypi/selenium</a></p>
 
 <p>Robot-AppEyes and dependencies:</p>
 </li>
 <li><p><a href="https://pypi.python.org/pypi/Robot-AppEyes">https://pypi.python.org/pypi/Robot-AppEyes</a></p></li>
-<li><a href="https://pypi.python.org/pypi/eyes-selenium/1.15">https://pypi.python.org/pypi/eyes-selenium</a></li>
+<li><a href="https://pypi.python.org/pypi/eyes-selenium/1.31">https://pypi.python.org/pypi/eyes-selenium</a></li>
 <li><a href="https://pypi.python.org/pypi/robotframework-selenium2library/1.5.0">https://pypi.python.org/pypi/robotframework-selenium2library</a></li>
 </ul><p>3) Extract each source distribution to a temporary location using 7zip (or your preferred zip program).</p>
 
@@ -114,13 +109,27 @@ its dependencies to the latest version:</p>
 <pre><code>   python setup.py install
 </code></pre>
 
+<h4>
+<a name="uninstall" class="anchor" href="#uninstall"><span class="octicon octicon-link"></span></a>Uninstall</h4>
+
+<p>To uninstall Robot-AppEyes use the following pip command: </p>
+
+<pre><code>pip uninstall Robot-AppEyes
+</code></pre>
+
+<p>However, if the package was installed manually it will need to be uninstalled manually:</p>
+
+<p>1) Navigate to <code>C:\Python27\Tests</code> and delete RobotAppEyesTest.txt, 1.png, 2.png and RobotAppEyes-KeywordDocumentation.html</p>
+
+<p>2) Navigate to <code>C:\Python27\Lib\site-packages</code> and delete RobotAppEyes-1.1-py2.7.egg-info and the folder <code>RobotAppEyes</code></p>
+
 <h2>
 <a name="directory-layout" class="anchor" href="#directory-layout"><span class="octicon octicon-link"></span></a>Directory Layout</h2>
 
 <p><em>RobotAppEyes/RobotAppEyes.py</em> :
     The Robot Python Library that makes use of the Applitools Eyes Python SDK.</p>
 
-<p><em>tests/acceptance/RobotAppEyesTest.txt</em> :
+<p><em>Tests/acceptance/RobotAppEyesTest.txt</em> :
     Example test file to display what various keywords from Robot-AppEyes Library accomplish</p>
 
 <p><em>doc/RobotAppEyes-KeywordDocumentation.html</em> :
@@ -146,12 +155,14 @@ See <a href="http://code.google.com/p/robotframework/wiki/UserGuide">Robot Frame
 For in depth detail on how the keywords function, read the Keyword documentation found here : <a href="http://navinet.github.io/Robot-AppEyes/RobotAppEyes-KeywordDocumentation.html">Keyword Documentation</a></p>
 
 <p><strong>Remember to include your Applitools API key otherwise the
-test will not run.</strong> To run the test, navigate to the atests directory in C:\Python folder. Open a command prompt within the <em>tests/acceptance</em> folder and run:</p>
+test will not run.</strong> To run the test navigate to the Tests directory in C:\Python folder. Open a command prompt within the <em>Tests/acceptance</em> folder and run:</p>
 
 <pre><code>pybot RobotAppEyesTest.txt
 </code></pre>
 
 <p><strong>Note:</strong> It is assumed that anyone who wants to use this demo script is already able to execute robot tests using Google Chrome.</p>
+
+<p>To view a failed comparison between two images, run the test with 1.png in the Compare Image keyword. Next, replace the file name 1.png with 2.png in the RobotAppEyesTest script and exectue tests again.</p>
 
 <h2>
 <a name="things-to-note-when-using-applitools" class="anchor" href="#things-to-note-when-using-applitools"><span class="octicon octicon-link"></span></a>Things to Note When Using Applitools</h2>
@@ -159,7 +170,7 @@ test will not run.</strong> To run the test, navigate to the atests directory in
 <ul>
 <li>The RobotAppEyesTest.txt test will fail after the first run because a baseline is being created and will be accepted automatically by Applitools Eyes. A second test run will show a successful comparison between screens and the test will pass.</li>
 <li>Changing the ${Applitools-AppName} variable value will create a new test entry in Applitools test result screen and a new baseline will be accepted automatically by Applitools Eyes on the first run.</li>
-<li>The Height resolution should not be greater than 1000 which is the Applitools maximum setting.</li>
+<li>The Height resolution should not be greater than 1000 which is currently Applitools maximum setting.</li>
 <li>Browser zoom should be set to 100%.</li>
 </ul><h2>
 <a name="getting-help" class="anchor" href="#getting-help"><span class="octicon octicon-link"></span></a>Getting Help</h2>
