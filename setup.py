@@ -47,11 +47,11 @@ setup(name              = 'Robot-AppEyes',
                               "Topic :: Software Development :: Quality Assurance"
                         ],
       install_requires  = [
-							'robotframework >= 2.8.4',
+							'robotframework >= 2.8.5',
 							'robotframework-selenium2library >= 1.5.0',
-							'eyes-selenium >= 1.31'
+							'eyes-selenium >= 2.5'
 				],
       packages          = ['RobotAppEyes'],
-      data_files        = [('Tests', ['Tests/acceptance/RobotAppEyesTest.txt', 'Tests/acceptance/1.png', 'Tests/acceptance/2.png', 'doc/RobotAppEyes-KeywordDocumentation.html', 'doc/ChangeLog.txt'])],
-      download_url      = 'https://github.com/NaviNet/Robot-AppEyes/tarball/1.1',
+      data_files        = [('AppEyesTests', ['Tests/acceptance/RobotAppEyesTest.txt', 'Tests/acceptance/pictureOne.png', 'Tests/acceptance/pictureTwo.png', 'doc/RobotAppEyes-KeywordDocumentation.html', 'doc/ChangeLog.txt'])],
+      download_url      = 'https://github.com/NaviNet/Robot-AppEyes/tarball/1.2',
       )

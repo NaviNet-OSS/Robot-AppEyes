@@ -10,15 +10,15 @@ Robot-AppEyes is a Robot Framework Library to automate visual software testing v
 The Robot-AppEyes library is the result of our work with [Applitools Eyes](http://applitools.com/). In order to use the Robot-AppEyes library, you are required to [sign up](https://applitools.com/sign-up/) for a free account with Applitools. See the [Usage](https://github.com/NaviNet/Robot-AppEyes#usage) section.
 
 - Information about Robot-AppEyes keywords can be found on the [RobotAppEyes-Keyword Documentation](http://navinet.github.io/Robot-AppEyes/RobotAppEyes-KeywordDocumentation.html) page.
-- The [Eyes Selenium](https://pypi.python.org/pypi/eyes-selenium/1.31) page provides more information for that library.
+- The [Eyes Selenium](https://pypi.python.org/pypi/eyes-selenium/2.5) page provides more information for that library.
 - More information about the Selenium2library can be found on the [Selenium2Library Wiki](https://github.com/rtomac/robotframework-selenium2library/wiki) and in the [Keyword Documentation](http://rtomac.github.com/robotframework-selenium2library/doc/Selenium2Library.html).
 
 Requirements
 ------------
 * Python 2.7.4 (Newer versions not tested)
-* Robot Framework 2.8.4 (Newer versions not tested)
+* Robot Framework 2.8.5 (Newer versions not tested)
 * Selenium2Library 1.5 (Newer versions not tested)
-* Eyes-Selenium 1.31 (Newer versions not tested). Access the downloads [here](https://pypi.python.org/pypi/eyes-selenium/1.31), or use pip install eyes-selenium.
+* Eyes-Selenium 2.5 (Newer versions not tested). Access the downloads [here](https://pypi.python.org/pypi/eyes-selenium/2.5), or use pip install eyes-selenium==2.5.
 
 
 Installation
@@ -60,7 +60,7 @@ To install Robot-Appeyes manually, install all dependency libraries before insta
   Robot-AppEyes and dependencies:
 
    - [https://pypi.python.org/pypi/Robot-AppEyes](https://pypi.python.org/pypi/Robot-AppEyes)
-   - [https://pypi.python.org/pypi/eyes-selenium](https://pypi.python.org/pypi/eyes-selenium/1.31)
+   - [https://pypi.python.org/pypi/eyes-selenium](https://pypi.python.org/pypi/eyes-selenium/2.5)
    - [https://pypi.python.org/pypi/robotframework-selenium2library](https://pypi.python.org/pypi/robotframework-selenium2library/1.5.0)
 
 3) Extract each source distribution to a temporary location using 7zip (or your preferred zip program).
@@ -77,9 +77,9 @@ To uninstall Robot-AppEyes use the following pip command:
 
 However, if the package was installed manually it will need to be uninstalled manually:
 
-1) Navigate to ``C:\Python27\Tests`` and delete RobotAppEyesTest.txt, 1.png, 2.png and RobotAppEyes-KeywordDocumentation.html
+1) Navigate to ``C:\Python27\Tests`` and delete RobotAppEyesTest.txt, pictureOne.png, pictureTwo.png and RobotAppEyes-KeywordDocumentation.html
 
-2) Navigate to ``C:\Python27\Lib\site-packages`` and delete RobotAppEyes-1.1-py2.7.egg-info and the folder ``RobotAppEyes``
+2) Navigate to ``C:\Python27\Lib\site-packages`` and delete RobotAppEyes-1.2-py2.7.egg-info and the folder ``RobotAppEyes``
 
 Directory Layout
 ----------------
@@ -122,7 +122,7 @@ test will not run.** To run the test navigate to the Tests directory in C:\Pytho
 
 **Note:** It is assumed that anyone who wants to use this demo script is already able to execute robot tests using Google Chrome.
 
-To view a failed comparison between two images, run the test with 1.png in the Compare Image keyword. Next, replace the file name 1.png with 2.png in the RobotAppEyesTest script and exectue tests again.
+To view a failed comparison between two images, run the test with 1.png in the Compare Image keyword. Next, replace the file name pictureOne.png with pictureTwo.png in the RobotAppEyesTest script and exectue tests again.
 
 
 Things to Note When Using Applitools

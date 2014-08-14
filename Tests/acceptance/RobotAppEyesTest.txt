@@ -43,6 +43,7 @@ ${Height}                                           768
 ${OSOverride}                                       OSOverride
 ${BrowserOverride}                                  BrowserOverride
 ${MatchLevel}                                       LAYOUT
+${True}                                             True
 
 
 
@@ -50,7 +51,7 @@ ${MatchLevel}                                       LAYOUT
 
 RobotAppEyes 1.0 Test
     Open Browser                                    ${Applitools-url}     gc
-    Open Eyes Session                               ${Applitools-url}     ${Applitools-AppName}    ${Applitools-TestName}1.0     ${Applitools-Key}		width=${Width}		height=${Height}
+    Open Eyes Session                               ${Applitools-url}     ${Applitools-AppName}    ${Applitools-TestName}1.0     ${Applitools-Key}      width=${Width}      height=${Height}   includeEyesLog=${True}
     Check Eyes Region                               ${Navbar}             ${NavbarWidth}           ${NavbarHeight}            ${NavbarTag}
     NaviNet Home Page Check
     Check Eyes Window                               NaviNet Home
@@ -85,14 +86,14 @@ RobotAppEyes 1.0 Test
 
 RobotAppEyes 1.1 Test
     Open Browser                                    ${Applitools-url}     gc
-    Open Eyes Session                               ${Applitools-url}     ${Applitools-AppName}    ${Applitools-TestName}1.1     ${Applitools-Key}     width=${Width}       height=${Height}        osname=${OSOverride}     browsername=${BrowserOverride}      match_level=${MatchLevel}
+    Open Eyes Session                               ${Applitools-url}     ${Applitools-AppName}    ${Applitools-TestName}1.1     ${Applitools-Key}     width=${Width}       height=${Height}        osname=${OSOverride}     browsername=${BrowserOverride}      matchlevel=${MatchLevel}   includeEyesLog=${True}
     ${isOpen}=                                      Eyes Session Is Open 
     Log                                             ${isOpen}
-    Compare Image                                   1.png                 Test Image Name
-    Check Eyes Region                               ${Navbar}             ${NavbarWidth}           ${NavbarHeight}            ${NavbarTag}
+    Compare Image                                   pictureOne.png        Test Image Name      includeEyesLog=${True}    httpDebugLog=${True}
+    Check Eyes Region                               ${Navbar}             ${NavbarWidth}       ${NavbarHeight}           ${NavbarTag}
     NaviNet Home Page Check
     Check Eyes Window                               NaviNet Home
-    Check Eyes Window                               NaviNet Home          force_full_page_screenshot=True
+    Check Eyes Window                               NaviNet Home          force_full_page_screenshot=${True}
     [Teardown]      Session Teardown
 
 *** Keywords ***
