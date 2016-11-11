@@ -73,9 +73,22 @@ class RobotAppEyes:
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
     ROBOT_LIBRARY_VERSION = VERSION
 
-    def open_eyes_session(self, url, appname, testname, apikey, width=None,
-                          height=None, osname=None, browsername=None,
-                          matchlevel=None, includeEyesLog=False, httpDebugLog=False, baselineName=None, batchName=None):
+    def open_eyes_session(self,
+                          url,
+                          appname,
+                          testname,
+                          apikey,
+                          width=None,
+                          height=None,
+                          osname=None,
+                          browsername=None,
+                          matchlevel=None,
+                          includeEyesLog=False,
+                          httpDebugLog=False,
+                          baselineName=None,
+                          batchName=None,
+                          branchname=None,
+                          parentbranch=None):
         """
         Starts a session with the Applitools Eyes Website.
 
@@ -91,6 +104,8 @@ class RobotAppEyes:
                 |  (Optional) Match Level (string)      | The match level for the comparison - can be STRICT, LAYOUT or CONTENT                                       |
                 |  Include Eyes Log (default=False)     | The Eyes logs will not be included by default. To activate, pass 'True' in the variable.                    |
                 |  HTTP Debug Log (default=False)       | The HTTP Debug logs will not be included by default. To activate, pass 'True' in the variable.              |
+                |  Branch Name (default=False)          | The branch to use to check test                                                                             |
+                |  Parent Branch (default=False)        | Parent Branch to base the new Branch on
 
         Creates an instance of the Selenium2Library webdriver.
         Defines a global driver and sets the Selenium2Library webdriver to the global driver.
@@ -138,6 +153,10 @@ class RobotAppEyes:
             eyes.batch = batch
         if matchlevel is not None:
             eyes.match_level = matchlevel
+        if parentbranch is not None:
+            eyes.parent_branch_name = parentbranch  # (str)
+        if branchname is not None:
+            eyes.branch_name = branchname  # (str)
         if width is None and height is None:
             eyes.open(driver, appname, testname)
         else:
