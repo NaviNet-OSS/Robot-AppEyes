@@ -103,7 +103,7 @@ class RobotAppEyes:
                 |  Include Eyes Log (default=False)     | The Eyes logs will not be included by default. To activate, pass 'True' in the variable.                    |
                 |  HTTP Debug Log (default=False)       | The HTTP Debug logs will not be included by default. To activate, pass 'True' in the variable.              |
                 |  Branch Name (default=False)          | The branch to use to check test                                                                             |
-                |  Parent Branch (default=False)        | Parent Branch to base the new Branch on
+                |  Parent Branch (default=False)        | Parent Branch to base the new Branch on                                                                     |
 
         Creates an instance of the Selenium2Library webdriver.
         Defines a global driver and sets the Selenium2Library webdriver to the global driver.
