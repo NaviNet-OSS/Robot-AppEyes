@@ -36,7 +36,7 @@ ${NavbarTag}                                        NaviNet Navbar
 ${Applitools-url}                                   http://www.navinet.net/
 ${Applitools-AppName}                               RobotAppEyes_Test
 ${Applitools-TestName}                              NaviNet_RobotAppEyes_Test
-${Applitools-Key}                                   khdJQW103DVA2X2izw98c3b396J2Vz6AurnqpMl103BHHGX8110
+${Applitools-Key}                                   YourApplitoolsKey
 ${Width}                                            1024
 ${Height}                                           768
 
