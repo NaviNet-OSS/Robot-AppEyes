@@ -18,7 +18,7 @@ Requirements
 * Python 2.7.4 (Newer versions not tested)
 * Robot Framework 2.8.7 (Newer versions not tested)
 * Selenium2Library 1.7.4 (Newer versions not tested)
-* Eyes-Selenium 3.2 (Newer versions not tested). Access the downloads [here](https://pypi.python.org/pypi/eyes-selenium/2.5), or use pip install eyes-selenium==2.5.
+* Eyes-Selenium 3.2 (Newer versions not tested)
 
 
 Installation
@@ -42,16 +42,17 @@ To install a specific version enter:
     pip install Robot-AppEyes==(DesiredVersion)
 
 #### Manual Installation ####
+It is also possible to install the package with python, though you will need dependencies to be installed manually.
+you can download the source distribution from PyPI, extract it and 
+run the following command:
 
-To install Robot-Appeyes manually:
-   1) Download the source code an package it with next command:
+    python setup.py install
+
+Alternatively you could download the source code, package it and install using next commands:
 
         python setup.py sdist
-
-   2) Install local package:
-
         pip install resulting_package
-        ## dist/robot-appEyes-1.2.zip
+        ## dist/robot-appEyes-1.2.zip        
 
 #### Uninstall ####
 
