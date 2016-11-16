@@ -36,7 +36,7 @@ ${NavbarTag}                                        NaviNet Navbar
 ${Applitools-url}                                   http://www.navinet.net/
 ${Applitools-AppName}                               RobotAppEyes_Test
 ${Applitools-TestName}                              NaviNet_RobotAppEyes_Test
-${Applitools-Key}                                   YourApplitoolsKey
+${Applitools-Key}                                   khdJQW103DVA2X2izw98c3b396J2Vz6AurnqpMl103BHHGX8110
 ${Width}                                            1024
 ${Height}                                           768
 
@@ -51,7 +51,7 @@ ${True}                                             True
 
 RobotAppEyes 1.0 Test
     Open Browser                                    ${Applitools-url}     gc
-    Open Eyes Session                               ${Applitools-url}     ${Applitools-AppName}    ${Applitools-TestName}1.0     ${Applitools-Key}      width=${Width}      height=${Height}   includeEyesLog=${True}
+    Open Eyes Session                               ${Applitools-AppName}    ${Applitools-TestName}1.0     ${Applitools-Key}      width=${Width}      height=${Height}   includeEyesLog=${True}
     Check Eyes Region                               ${Navbar}             ${NavbarWidth}           ${NavbarHeight}            ${NavbarTag}
     NaviNet Home Page Check
     Check Eyes Window                               NaviNet Home
@@ -86,7 +86,7 @@ RobotAppEyes 1.0 Test
 
 RobotAppEyes 1.1 Test
     Open Browser                                    ${Applitools-url}     gc
-    Open Eyes Session                               ${Applitools-url}     ${Applitools-AppName}    ${Applitools-TestName}1.1     ${Applitools-Key}     width=${Width}       height=${Height}        osname=${OSOverride}     browsername=${BrowserOverride}      matchlevel=${MatchLevel}   includeEyesLog=${True}
+    Open Eyes Session                               ${Applitools-AppName}    ${Applitools-TestName}1.1     ${Applitools-Key}     width=${Width}       height=${Height}        osname=${OSOverride}     browsername=${BrowserOverride}      matchlevel=${MatchLevel}   includeEyesLog=${True}
     ${isOpen}=                                      Eyes Session Is Open 
     Log                                             ${isOpen}
     Compare Image                                   pictureOne.png        Test Image Name      includeEyesLog=${True}    httpDebugLog=${True}
