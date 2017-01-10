@@ -102,18 +102,20 @@ class RobotAppEyes:
         Starts a session with the Applitools Eyes Website.
 
         Arguments:
-                |  Application Name (string)            | The name of the application under test.                                                                     |
-                |  Test Name (string)                   | The test name.                                                                                              |
-                |  API Key (string)                     | User's Applitools Eyes key.                                                                                 |
-                |  (Optional) Width (int)               | The width of the browser window e.g. 1280                                                                   |
-                |  (Optional) Height (int)              | The height of the browser window e.g. 1000                                                                  |
-                |  (Optional) Operating System (string) | The operating system of the test, can be used to override the OS name to allow cross OS verfication         |
-                |  (Optional) Browser Name (string)     | The browser name for the test, can be used to override the browser name to allow cross browser verfication  |
-                |  (Optional) Match Level (string)      | The match level for the comparison - can be STRICT, LAYOUT or CONTENT                                       |
-                |  Include Eyes Log (default=False)     | The Eyes logs will not be included by default. To activate, pass 'True' in the variable.                    |
-                |  HTTP Debug Log (default=False)       | The HTTP Debug logs will not be included by default. To activate, pass 'True' in the variable.              |
-                |  Branch Name (default=False)          | The branch to use to check test                                                                             |
-                |  Parent Branch (default=False)        | Parent Branch to base the new Branch on                                                                     |
+                |  Application Name (string)                     | The name of the application under test.                                                                                                  |
+                |  Test Name (string)                            | The test name.                                                                                                                           |
+                |  API Key (string)                              | User's Applitools Eyes key.                                                                                                              |
+                |  (Optional) Width (int)                        | The width of the browser window e.g. 1280                                                                                                |
+                |  (Optional) Height (int)                       | The height of the browser window e.g. 1000                                                                                               |
+                |  (Optional) Operating System (string)          | The operating system of the test, can be used to override the OS name to allow cross OS verfication                                      |
+                |  (Optional) Browser Name (string)              | The browser name for the test, can be used to override the browser name to allow cross browser verfication                               |
+                |  (Optional) Match Level (string)               | The match level for the comparison - can be STRICT, LAYOUT or CONTENT                                                                    |
+                |  Include Eyes Log (default=False)              | The Eyes logs will not be included by default. To activate, pass 'True' in the variable.                                                 |
+                |  HTTP Debug Log (default=False)                | The HTTP Debug logs will not be included by default. To activate, pass 'True' in the variable.                                           |
+                |  (Optional) Branch Name (default=None)         | The branch to use to check test                                                                                                          |   For further information - http://support.applitools.com/customer/portal/articles/2142886
+                |  (Optional)Parent Branch (default=None)        | Parent Branch to base the new Branch on                                                                                                  |   For further information - http://support.applitools.com/customer/portal/articles/2142886
+                |  (Optional) fullPageScrennshot (default=False) | Will force the browser to take a screenshot of whole page.                                                                               |
+                |  (Optional) matchTimeout                       | The amount of time that Eyes will wait for an image to stabilize to a point that it is similar to the baseline image                     |   For further information - http://support.applitools.com/customer/portal/articles/2099488
 
         Creates an instance of the Selenium2Library webdriver.
         Defines a global driver and sets the Selenium2Library webdriver to the global driver.
@@ -185,7 +187,6 @@ class RobotAppEyes:
 
         Arguments:
                 |  Name (string)                                | Name that will be given to region in Eyes.                                                      |
-                |  Force Full Page Screenshot (default=False)   | Will force the browser to take a screenshot of whole page.                                      |
                 |  Include Eyes Log (default=False)             | The Eyes logs will not be included by default. To activate, pass 'True' in the variable.        |
                 |  HTTP Debug Log (default=False)               | The HTTP Debug logs will not be included by default. To activate, pass 'True' in the variable.  |
 
