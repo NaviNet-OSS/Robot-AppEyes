@@ -72,6 +72,13 @@ class RobotAppEyes:
     """
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
     ROBOT_LIBRARY_VERSION = VERSION
+    BatchDic=dict()
+
+    def _eyes_set_batch(self,batchName):
+        if batchName is not None:
+            if batchName not in self.BatchDic.keys():
+                self.BatchDic[batchName]=BatchInfo(batchName)
+            eyes.batch=self.BatchDic[batchName]
 
     def open_eyes_session(self,
                           appname,
@@ -87,7 +94,10 @@ class RobotAppEyes:
                           baselineName=None,
                           batchName=None,
                           branchname=None,
-                          parentbranch=None):
+                          parentbranch=None,
+                          hideScrollBar=False,
+                          fullPageScrennshot=False,
+                          matchTimeout=None):
         """
         Starts a session with the Applitools Eyes Website.
 
@@ -129,6 +139,12 @@ class RobotAppEyes:
         global eyes
         eyes = Eyes()
         eyes.api_key = apikey
+        self._eyes_set_batch(batchName)
+        eyes.force_full_page_screenshot = fullPageScrennshot
+        eyes.hide_scrollbars = hideScrollBar
+        if baselineName is not None:
+            eyes.baseline_name = baselineName  # (str)
+
         s2l = BuiltIn().get_library_instance('Selenium2Library')
         webdriver = s2l._current_browser()
         driver = webdriver
@@ -142,11 +158,10 @@ class RobotAppEyes:
             eyes.host_os = osname  # (str)
         if browsername is not None:
             eyes.host_app = browsername  # (str)
+        if matchTimeout is not None:
+            eyes.match_timeout(int(matchTimeout))
         if baselineName is not None:
             eyes.baseline_name = baselineName  # (str)
-        if batchName is not None:
-            batch =BatchInfo(batchName)
-            eyes.batch = batch
         if matchlevel is not None:
             eyes.match_level = matchlevel
         if parentbranch is not None:
@@ -161,7 +176,8 @@ class RobotAppEyes:
             eyes.open(driver, appname, testname, {'width': intwidth, 'height': intheight})
 
 
-    def check_eyes_window(self, name, force_full_page_screenshot=False,
+
+    def check_eyes_window(self, name,
                           includeEyesLog=False, httpDebugLog=False):
         """
         Takes a snapshot from the browser using the web driver and matches it with
@@ -188,7 +204,6 @@ class RobotAppEyes:
         if httpDebugLog is True:
             httplib.HTTPConnection.debuglevel = 1
 
-        eyes.force_full_page_screenshot = force_full_page_screenshot
         eyes.check_window(name)
 
     def check_eyes_region(self, element, width, height, name, includeEyesLog=False, httpDebugLog=False):
