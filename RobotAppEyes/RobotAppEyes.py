@@ -73,14 +73,25 @@ class RobotAppEyes:
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
     ROBOT_LIBRARY_VERSION = VERSION
 
-    def open_eyes_session(self, url, appname, testname, apikey, width=None,
-                          height=None, osname=None, browsername=None,
-                          matchlevel=None, includeEyesLog=False, httpDebugLog=False, baselineName=None, batchName=None):
+    def open_eyes_session(self,
+                          appname,
+                          testname,
+                          apikey,
+                          width=None,
+                          height=None,
+                          osname=None,
+                          browsername=None,
+                          matchlevel=None,
+                          includeEyesLog=False,
+                          httpDebugLog=False,
+                          baselineName=None,
+                          batchName=None,
+                          branchname=None,
+                          parentbranch=None):
         """
         Starts a session with the Applitools Eyes Website.
 
         Arguments:
-                |  URL (string)                         | The URL to start the test on                                                                                |
                 |  Application Name (string)            | The name of the application under test.                                                                     |
                 |  Test Name (string)                   | The test name.                                                                                              |
                 |  API Key (string)                     | User's Applitools Eyes key.                                                                                 |
@@ -91,6 +102,8 @@ class RobotAppEyes:
                 |  (Optional) Match Level (string)      | The match level for the comparison - can be STRICT, LAYOUT or CONTENT                                       |
                 |  Include Eyes Log (default=False)     | The Eyes logs will not be included by default. To activate, pass 'True' in the variable.                    |
                 |  HTTP Debug Log (default=False)       | The HTTP Debug logs will not be included by default. To activate, pass 'True' in the variable.              |
+                |  Branch Name (default=False)          | The branch to use to check test                                                                             |
+                |  Parent Branch (default=False)        | Parent Branch to base the new Branch on                                                                     |
 
         Creates an instance of the Selenium2Library webdriver.
         Defines a global driver and sets the Selenium2Library webdriver to the global driver.
@@ -101,15 +114,13 @@ class RobotAppEyes:
 
         The Height resolution should not be greater than 1000, this is currently Applitools maximum setting.
 
-        The driver then gets the url that will be tested.
-
         Starts a session with the Applitools Eyes Website. See https://eyes.applitools.com/app/sessions/
 
         Example:
 
         | *Keywords*         |  *Parameters*                                                                                                                                                                                                                    |
         | Open Browser       |  http://www.navinet.net/ | gc                |                            |                     |        |       |                  |                       |                      |                       |                     |
-        | Open Eyes Session  |  http://www.navinet.net/ | RobotAppEyes_Test |  NaviNet_RobotAppEyes_Test |  YourApplitoolsKey  |  1024  |  768  |  OSOverrideName  |  BrowserOverrideName  |  matchlevel=LAYOUT   |  includeEyesLog=True  |  httpDebugLog=True  |
+        | Open Eyes Session  |  RobotAppEyes_Test |  NaviNet_RobotAppEyes_Test |  YourApplitoolsKey  |  1024  |  768  |  OSOverrideName  |  BrowserOverrideName  |  matchlevel=LAYOUT   |  includeEyesLog=True  |  httpDebugLog=True  |
         | Check Eyes Window  |  NaviNet Home            |                   |                            |                     |        |       |                  |                       |                      |                       |                     |
         | Close Eyes Session |  False                   |                   |                            |                     |        |       |                  |                       |                      |                       |                     |
 
@@ -138,13 +149,16 @@ class RobotAppEyes:
             eyes.batch = batch
         if matchlevel is not None:
             eyes.match_level = matchlevel
+        if parentbranch is not None:
+            eyes.parent_branch_name = parentbranch  # (str)
+        if branchname is not None:
+            eyes.branch_name = branchname  # (str)
         if width is None and height is None:
             eyes.open(driver, appname, testname)
         else:
             intwidth = int(width)
             intheight = int(height)
             eyes.open(driver, appname, testname, {'width': intwidth, 'height': intheight})
-            driver.get(url)
 
 
     def check_eyes_window(self, name, force_full_page_screenshot=False,

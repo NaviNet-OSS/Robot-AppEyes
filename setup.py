@@ -27,31 +27,33 @@ Robot-AppEyes is a visual verfication library for Robot Framework
 that leverages the Eyes-Selenium and Selenium2 libraries.
 """[1:-1]
 
-setup(name              = 'Robot-AppEyes',
-      version           = VERSION,
-      description       = 'Visual Verification testing library for Robot Framework',
-      long_description  = DESCRIPTION,
-      author            = 'Thomas Armstrong, Simon McMorran, Gareth Nixon, Adam Simmons',
-      author_email      = '<tarmstrong@navinet.net>, <smcmorran@navinet.net>, <gnixon@navinet.net>, <asimmons@navinet.net>',
-      url               = 'https://github.com/NaviNet/Robot-AppEyes',
-      license           = 'Apache License 2.0',
-      keywords          = 'robotframework testing testautomation eyes-selenium selenium2 visual-verification',
-      platforms         = 'any',
-      classifiers       = [
-                              "License :: OSI Approved :: Apache Software License",
-                              "Programming Language :: Python",
-                              "Development Status :: 4 - Beta",
-                              "Intended Audience :: Developers",
-                              "Programming Language :: Python :: 2.7",
-                              "Topic :: Software Development :: Testing",
-                              "Topic :: Software Development :: Quality Assurance"
-                        ],
-      install_requires  = [
-							'robotframework >= 2.8.5',
-							'robotframework-selenium2library >= 1.5.0',
-							'eyes-selenium >= 2.5'
-				],
-      packages          = ['RobotAppEyes'],
-      data_files        = [('AppEyesTests', ['Tests/acceptance/RobotAppEyesTest.txt', 'Tests/acceptance/pictureOne.png', 'Tests/acceptance/pictureTwo.png', 'doc/RobotAppEyes-KeywordDocumentation.html', 'doc/ChangeLog.txt'])],
-      download_url      = 'https://github.com/NaviNet/Robot-AppEyes/tarball/1.2',
+setup(name='Robot-AppEyes',
+      version=VERSION,
+      description='Visual Verification testing library for Robot Framework',
+      long_description=DESCRIPTION,
+      author='Thomas Armstrong, Simon McMorran, Gareth Nixon, Adam Simmons',
+      author_email='<tarmstrong@navinet.net>, <smcmorran@navinet.net>, <gnixon@navinet.net>, <asimmons@navinet.net>',
+      url='https://github.com/NaviNet/Robot-AppEyes',
+      license='Apache License 2.0',
+      keywords='robotframework testing testautomation eyes-selenium selenium2 visual-verification',
+      platforms='any',
+      classifiers=[
+          "License :: OSI Approved :: Apache Software License",
+          "Programming Language :: Python",
+          "Development Status :: 4 - Beta",
+          "Intended Audience :: Developers",
+          "Programming Language :: Python :: 2.7",
+          "Topic :: Software Development :: Testing",
+          "Topic :: Software Development :: Quality Assurance"
+      ],
+      install_requires=[
+          'robotframework >= 2.8.7',
+          'robotframework-selenium2library >= 1.7.4',
+          'eyes-selenium >= 3.2'
+      ],
+      packages=['RobotAppEyes'],
+      data_files=[('AppEyesTests', ['Tests/acceptance/RobotAppEyesTest.txt', 'Tests/acceptance/pictureOne.png',
+                                    'Tests/acceptance/pictureTwo.png', 'doc/RobotAppEyes-KeywordDocumentation.html',
+                                    'doc/ChangeLog.txt'])],
+      download_url='https://github.com/NaviNet/Robot-AppEyes/tarball/1.2',
       )

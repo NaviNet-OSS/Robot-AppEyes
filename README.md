@@ -16,9 +16,9 @@ The Robot-AppEyes library is the result of our work with [Applitools Eyes](http:
 Requirements
 ------------
 * Python 2.7.4 (Newer versions not tested)
-* Robot Framework 2.8.5 (Newer versions not tested)
-* Selenium2Library 1.5 (Newer versions not tested)
-* Eyes-Selenium 2.5 (Newer versions not tested). Access the downloads [here](https://pypi.python.org/pypi/eyes-selenium/2.5), or use pip install eyes-selenium==2.5.
+* Robot Framework 2.8.7 (Newer versions not tested)
+* Selenium2Library 1.7.4 (Newer versions not tested)
+* Eyes-Selenium 3.2 (Newer versions not tested)
 
 
 Installation
@@ -42,32 +42,17 @@ To install a specific version enter:
     pip install Robot-AppEyes==(DesiredVersion)
 
 #### Manual Installation ####
+It is also possible to install the package with python, though you will need dependencies to be installed manually.
+you can download the source distribution from PyPI, extract it and 
+run the following command:
 
-To install Robot-Appeyes manually, install all dependency libraries before installing Robot-AppEyes.
+    python setup.py install
 
-1) Install [Robot Framework installed](http://code.google.com/p/robotframework/wiki/Installation).
+Alternatively you could download the source code, package it and install using next commands:
 
-2) Download source distributions (``*.tar.gz`` / ``*.zip``) for the library and its
-   dependencies.
-
-  Eyes-selenium dependencies:
-
-   - [https://pypi.python.org/pypi/setuptools](https://pypi.python.org/pypi/setuptools)
-   - [https://pypi.python.org/pypi/requests](https://pypi.python.org/pypi/requests/2.2.1)
-   - [https://pypi.python.org/pypi/pypng](https://pypi.python.org/pypi/pypng/0.0.16)
-   - [https://pypi.python.org/pypi/selenium](https://pypi.python.org/pypi/selenium/2.41.0)
-
-  Robot-AppEyes and dependencies:
-
-   - [https://pypi.python.org/pypi/Robot-AppEyes](https://pypi.python.org/pypi/Robot-AppEyes)
-   - [https://pypi.python.org/pypi/eyes-selenium](https://pypi.python.org/pypi/eyes-selenium/2.5)
-   - [https://pypi.python.org/pypi/robotframework-selenium2library](https://pypi.python.org/pypi/robotframework-selenium2library/1.5.0)
-
-3) Extract each source distribution to a temporary location using 7zip (or your preferred zip program).
-
-4) Open command line and go to each directory that was created from extraction and install each project using:
-
-       python setup.py install
+        python setup.py sdist
+        pip install resulting_package
+        ## dist/robot-appEyes-1.2.zip        
 
 #### Uninstall ####
 
