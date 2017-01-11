@@ -27,7 +27,7 @@ ${matchTimeout}                                     3
 Test1
     [Documentation]
     Open Browser                                    ${Applitools-url}       Chrome
-    Open Eyes Session                               appname=${Applitools-AppName}    testname=${Applitools-TestName}     apikey=${Applitools-Key}      width=${Width}      height=${Height}         matchlevel=${MatchLevel}      fullPageScrennshot=${False}     hideScrollBar=${True}     batchName=${batchName}      matchTimeout=${matchTimeout}
+    Open Eyes Session                               appname=${Applitools-AppName}    testname=${Applitools-TestName}     apikey=${Applitools-Key}      width=${Width}      height=${Height}         matchlevel=${MatchLevel}      fullPageScreenshot=${False}     hideScrollBar=${True}     batchName=${batchName}      matchTimeout=${matchTimeout}
     Check Eyes Window                               Main Page New
     Close Browser
     Close Eyes Session

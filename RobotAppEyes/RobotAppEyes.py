@@ -96,7 +96,7 @@ class RobotAppEyes:
                           branchname=None,
                           parentbranch=None,
                           hideScrollBar=False,
-                          fullPageScrennshot=False,
+                          fullPageScreenshot=False,
                           matchTimeout=None):
         """
         Starts a session with the Applitools Eyes Website.
