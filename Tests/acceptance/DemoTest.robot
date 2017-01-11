@@ -19,7 +19,8 @@ ${Height}                                           800
 ${MatchLevel}                                       LAYOUT2
 ${True}                                             True
 ${False}                                            False
-${batchName}                                        MyBatchName
+${firstBatchName}                                        MyBatchName
+${secondBatchName}                                        MyBatchName
 ${matchTimeout}                                     3
 
 *** Test Cases ***
@@ -27,10 +28,26 @@ ${matchTimeout}                                     3
 Test1
     [Documentation]
     Open Browser                                    ${Applitools-url}       Chrome
-    Open Eyes Session                               appname=${Applitools-AppName}    testname=${Applitools-TestName}     apikey=${Applitools-Key}      width=${Width}      height=${Height}         matchlevel=${MatchLevel}      fullPageScreenshot=${False}     hideScrollBar=${True}     batchName=${batchName}      matchTimeout=${matchTimeout}
+    Open Eyes Session                               appname=${Applitools-AppName}    testname=${Applitools-TestName}     apikey=${Applitools-Key}      width=${Width}      height=${Height}         matchlevel=${MatchLevel}      fullPageScreenshot=${False}     hideScrollBar=${True}     batchName=${firstBatchName}      matchTimeout=${matchTimeout}
+    Check Eyes Window                               Main Page New
+    Close Browser
+    Close Eyes Session
+
+
+Test2
+    [Documentation]
+    Open Browser                                    ${Applitools-url}       Chrome
+    Open Eyes Session                               appname=${Applitools-AppName}    testname=${Applitools-TestName}     apikey=${Applitools-Key}      width=${Width}      height=${Height}         matchlevel=${MatchLevel}      fullPageScreenshot=${False}     hideScrollBar=${True}     batchName=${secondBatchName}      matchTimeout=${matchTimeout}
     Check Eyes Window                               Main Page New
     Close Browser
     Close Eyes Session
 
 
 
+Test3
+    [Documentation]
+    Open Browser                                    ${Applitools-url}       Chrome
+    Open Eyes Session                               appname=${Applitools-AppName}    testname=${Applitools-TestName}     apikey=${Applitools-Key}      width=${Width}      height=${Height}         matchlevel=${MatchLevel}      fullPageScreenshot=${False}     hideScrollBar=${True}     batchName=${firstBatchName}      matchTimeout=${matchTimeout}
+    Check Eyes Window                               Main Page New
+    Close Browser
+    Close Eyes Session
