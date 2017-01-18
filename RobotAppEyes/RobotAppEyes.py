@@ -142,7 +142,7 @@ class RobotAppEyes:
         eyes = Eyes()
         eyes.api_key = apikey
         self._eyes_set_batch(batchName)
-        eyes.force_full_page_screenshot = fullPageScrennshot
+        eyes.force_full_page_screenshot = fullPageScreenshot
         eyes.hide_scrollbars = hideScrollBar
         if baselineName is not None:
             eyes.baseline_name = baselineName  # (str)
