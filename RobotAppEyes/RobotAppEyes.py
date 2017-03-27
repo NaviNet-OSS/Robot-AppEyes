@@ -74,10 +74,14 @@ class RobotAppEyes:
     ROBOT_LIBRARY_VERSION = VERSION
     BatchDic=dict()
 
-    def _eyes_set_batch(self,batchName):
-        if batchName is not None:
-            if batchName not in self.BatchDic.keys():
-                self.BatchDic[batchName]=BatchInfo(batchName)
+    def _eyes_set_batch(self,batchName,ApplitoolsJenkinsPlugin):
+        batch = BatchInfo(batchName)
+        if ApplitoolsJenkinsPlugin is True:
+            batch.id = os.environ('APPLITOOLS_BATCH_ID')
+            if batchName is None:
+                batch.name = os.environ('JOB_NAME')
+        if batchName not in self.BatchDic.keys():
+            self.BatchDic[batchName]=batch
             eyes.batch=self.BatchDic[batchName]
 
     def open_eyes_session(self,
@@ -93,6 +97,7 @@ class RobotAppEyes:
                           httpDebugLog=False,
                           baselineName=None,
                           batchName=None,
+                          ApplitoolsJenkinsPlugin=False,
                           branchname=None,
                           parentbranch=None,
                           hideScrollBar=False,
@@ -116,6 +121,7 @@ class RobotAppEyes:
                 |  (Optional)Parent Branch (default=None)        | Parent Branch to base the new Branch on                                                                                                  |   For further information - http://support.applitools.com/customer/portal/articles/2142886
                 |  (Optional) fullPageScrennshot (default=False) | Will force the browser to take a screenshot of whole page.                                                                               |
                 |  (Optional) matchTimeout                       | The amount of time that Eyes will wait for an image to stabilize to a point that it is similar to the baseline image                     |   For further information - http://support.applitools.com/customer/portal/articles/2099488
+                |  (Optional) ApplitoolsJenkinsPlugin (Boolean)  | Integration with Applitools Jenkins Plugin                                                                                               |   For further information - http://support.applitools.com/customer/portal/articles/2689601
 
         Creates an instance of the Selenium2Library webdriver.
         Defines a global driver and sets the Selenium2Library webdriver to the global driver.
@@ -141,7 +147,7 @@ class RobotAppEyes:
         global eyes
         eyes = Eyes()
         eyes.api_key = apikey
-        self._eyes_set_batch(batchName)
+        self._eyes_set_batch(batchName,ApplitoolsJenkinsPlugin)
         eyes.force_full_page_screenshot = fullPageScreenshot
         eyes.hide_scrollbars = hideScrollBar
         if baselineName is not None:
@@ -161,7 +167,7 @@ class RobotAppEyes:
         if browsername is not None:
             eyes.host_app = browsername  # (str)
         if matchTimeout is not None:
-            eyes.match_timeout(int(matchTimeout))
+            eyes._match_timeout= int(matchTimeout)
         if baselineName is not None:
             eyes.baseline_name = baselineName  # (str)
         if matchlevel is not None:

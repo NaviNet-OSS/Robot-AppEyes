@@ -19,16 +19,16 @@ ${Height}                                           800
 ${MatchLevel}                                       LAYOUT2
 ${True}                                             True
 ${False}                                            False
-${firstBatchName}                                        MyBatchName
-${secondBatchName}                                        MyBatchName
-${matchTimeout}                                     3
+${firstBatchName}                                   MyBatchName
+${secondBatchName}                                  MyBatchName2
+${matchTimeout}                                     3000
 
 *** Test Cases ***
 
 Test1
     [Documentation]
     Open Browser                                    ${Applitools-url}       Chrome
-    Open Eyes Session                               appname=${Applitools-AppName}    testname=${Applitools-TestName}     apikey=${Applitools-Key}      width=${Width}      height=${Height}         matchlevel=${MatchLevel}      fullPageScreenshot=${False}     hideScrollBar=${True}     batchName=${firstBatchName}      matchTimeout=${matchTimeout}
+    Open Eyes Session                               appname=${Applitools-AppName}    testname=${Applitools-TestName}     apikey=${Applitools-Key}      width=${Width}      height=${Height}         matchlevel=${MatchLevel}        batchName=${firstBatchName}     fullPageScreenshot=${False}     hideScrollBar=${True}       matchTimeout=${matchTimeout}
     Check Eyes Window                               Main Page New
     Close Browser
     Close Eyes Session
