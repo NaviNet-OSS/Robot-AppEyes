@@ -77,12 +77,12 @@ class RobotAppEyes:
     def _eyes_set_batch(self,batchName,ApplitoolsJenkinsPlugin):
         batch = BatchInfo(batchName)
         if ApplitoolsJenkinsPlugin is True:
-            batch.id = os.environ('APPLITOOLS_BATCH_ID')
+            batch.id = os.environ['APPLITOOLS_BATCH_ID']
             if batchName is None:
-                batch.name = os.environ('JOB_NAME')
+                batch.name = os.environ['JOB_NAME']
         if batchName not in self.BatchDic.keys():
             self.BatchDic[batchName]=batch
-            eyes.batch=self.BatchDic[batchName]
+        eyes.batch=self.BatchDic[batchName]
 
     def open_eyes_session(self,
                           appname,
