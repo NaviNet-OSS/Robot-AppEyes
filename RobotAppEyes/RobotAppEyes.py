@@ -72,6 +72,17 @@ class RobotAppEyes:
     """
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
     ROBOT_LIBRARY_VERSION = VERSION
+    BatchDic=dict()
+
+    def _eyes_set_batch(self,batchName,ApplitoolsJenkinsPlugin):
+        batch = BatchInfo(batchName)
+        if ApplitoolsJenkinsPlugin is True:
+            batch.id = os.environ['APPLITOOLS_BATCH_ID']
+            if batchName is None:
+                batch.name = os.environ['JOB_NAME']
+        if batchName not in self.BatchDic.keys():
+            self.BatchDic[batchName]=batch
+        eyes.batch=self.BatchDic[batchName]
 
     def open_eyes_session(self,
                           appname,
@@ -86,24 +97,31 @@ class RobotAppEyes:
                           httpDebugLog=False,
                           baselineName=None,
                           batchName=None,
+                          ApplitoolsJenkinsPlugin=False,
                           branchname=None,
-                          parentbranch=None):
+                          parentbranch=None,
+                          hideScrollBar=False,
+                          fullPageScreenshot=False,
+                          matchTimeout=None):
         """
         Starts a session with the Applitools Eyes Website.
 
         Arguments:
-                |  Application Name (string)            | The name of the application under test.                                                                     |
-                |  Test Name (string)                   | The test name.                                                                                              |
-                |  API Key (string)                     | User's Applitools Eyes key.                                                                                 |
-                |  (Optional) Width (int)               | The width of the browser window e.g. 1280                                                                   |
-                |  (Optional) Height (int)              | The height of the browser window e.g. 1000                                                                  |
-                |  (Optional) Operating System (string) | The operating system of the test, can be used to override the OS name to allow cross OS verfication         |
-                |  (Optional) Browser Name (string)     | The browser name for the test, can be used to override the browser name to allow cross browser verfication  |
-                |  (Optional) Match Level (string)      | The match level for the comparison - can be STRICT, LAYOUT or CONTENT                                       |
-                |  Include Eyes Log (default=False)     | The Eyes logs will not be included by default. To activate, pass 'True' in the variable.                    |
-                |  HTTP Debug Log (default=False)       | The HTTP Debug logs will not be included by default. To activate, pass 'True' in the variable.              |
-                |  Branch Name (default=False)          | The branch to use to check test                                                                             |
-                |  Parent Branch (default=False)        | Parent Branch to base the new Branch on                                                                     |
+                |  Application Name (string)                     | The name of the application under test.                                                                                                  |
+                |  Test Name (string)                            | The test name.                                                                                                                           |
+                |  API Key (string)                              | User's Applitools Eyes key.                                                                                                              |
+                |  (Optional) Width (int)                        | The width of the browser window e.g. 1280                                                                                                |
+                |  (Optional) Height (int)                       | The height of the browser window e.g. 1000                                                                                               |
+                |  (Optional) Operating System (string)          | The operating system of the test, can be used to override the OS name to allow cross OS verfication                                      |
+                |  (Optional) Browser Name (string)              | The browser name for the test, can be used to override the browser name to allow cross browser verfication                               |
+                |  (Optional) Match Level (string)               | The match level for the comparison - can be STRICT, LAYOUT or CONTENT                                                                    |
+                |  Include Eyes Log (default=False)              | The Eyes logs will not be included by default. To activate, pass 'True' in the variable.                                                 |
+                |  HTTP Debug Log (default=False)                | The HTTP Debug logs will not be included by default. To activate, pass 'True' in the variable.                                           |
+                |  (Optional) Branch Name (default=None)         | The branch to use to check test                                                                                                          |   For further information - http://support.applitools.com/customer/portal/articles/2142886
+                |  (Optional)Parent Branch (default=None)        | Parent Branch to base the new Branch on                                                                                                  |   For further information - http://support.applitools.com/customer/portal/articles/2142886
+                |  (Optional) fullPageScrennshot (default=False) | Will force the browser to take a screenshot of whole page.                                                                               |
+                |  (Optional) matchTimeout                       | The amount of time that Eyes will wait for an image to stabilize to a point that it is similar to the baseline image                     |   For further information - http://support.applitools.com/customer/portal/articles/2099488
+                |  (Optional) ApplitoolsJenkinsPlugin (Boolean)  | Integration with Applitools Jenkins Plugin                                                                                               |   For further information - http://support.applitools.com/customer/portal/articles/2689601
 
         Creates an instance of the Selenium2Library webdriver.
         Defines a global driver and sets the Selenium2Library webdriver to the global driver.
@@ -129,6 +147,12 @@ class RobotAppEyes:
         global eyes
         eyes = Eyes()
         eyes.api_key = apikey
+        self._eyes_set_batch(batchName,ApplitoolsJenkinsPlugin)
+        eyes.force_full_page_screenshot = fullPageScreenshot
+        eyes.hide_scrollbars = hideScrollBar
+        if baselineName is not None:
+            eyes.baseline_name = baselineName  # (str)
+
         s2l = BuiltIn().get_library_instance('Selenium2Library')
         webdriver = s2l._current_browser()
         driver = webdriver
@@ -142,11 +166,10 @@ class RobotAppEyes:
             eyes.host_os = osname  # (str)
         if browsername is not None:
             eyes.host_app = browsername  # (str)
+        if matchTimeout is not None:
+            eyes._match_timeout= int(matchTimeout)
         if baselineName is not None:
             eyes.baseline_name = baselineName  # (str)
-        if batchName is not None:
-            batch =BatchInfo(batchName)
-            eyes.batch = batch
         if matchlevel is not None:
             eyes.match_level = matchlevel
         if parentbranch is not None:
@@ -161,7 +184,8 @@ class RobotAppEyes:
             eyes.open(driver, appname, testname, {'width': intwidth, 'height': intheight})
 
 
-    def check_eyes_window(self, name, force_full_page_screenshot=False,
+
+    def check_eyes_window(self, name,
                           includeEyesLog=False, httpDebugLog=False):
         """
         Takes a snapshot from the browser using the web driver and matches it with
@@ -169,7 +193,6 @@ class RobotAppEyes:
 
         Arguments:
                 |  Name (string)                                | Name that will be given to region in Eyes.                                                      |
-                |  Force Full Page Screenshot (default=False)   | Will force the browser to take a screenshot of whole page.                                      |
                 |  Include Eyes Log (default=False)             | The Eyes logs will not be included by default. To activate, pass 'True' in the variable.        |
                 |  HTTP Debug Log (default=False)               | The HTTP Debug logs will not be included by default. To activate, pass 'True' in the variable.  |
 
@@ -188,7 +211,6 @@ class RobotAppEyes:
         if httpDebugLog is True:
             httplib.HTTPConnection.debuglevel = 1
 
-        eyes.force_full_page_screenshot = force_full_page_screenshot
         eyes.check_window(name)
 
     def check_eyes_region(self, element, width, height, name, includeEyesLog=False, httpDebugLog=False):
