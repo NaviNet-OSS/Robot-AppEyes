@@ -5,40 +5,35 @@ Library                                             RobotAppEyes
 *** Variables ***
 ### Selenium2Library Variables ###
 ${Timeout}                                          15
-${LoginButton}                                      xpath=//*[@id="block-block-7"]/div/ul/li[1]/a
-${SupportButton}                                    xpath=//*[@id="block-block-7"]/div/ul/li[2]/a
+${LoginButton}                                      xpath=//*[@class="leaf menu-item-icon menu-item-icon-lock"]
+${SupportButton}                                    xpath=//*[@class="last leaf menu-item-icon menu-item-icon-phone"]
 
-${SolutionsTab}                                     xpath=//*[@id="navbar"]/div/div/div[2]/nav/ul/li[1]/a
-${NaviNetOpen}                                      xpath=//*[@id="node-1"]/div[2]/div/div/p[2]/a[1]
-${TransformTab}                                     xpath=//*[@id="block-menu-block-1"]/div/div/ul/li/ul/li[1]/a
+${SolutionsTab}                                     xpath=//*[@class="expanded menu-item-solutions"]/a
+${CompanyTab}                                       xpath=//*[@class="expanded menu-item-company"]/a
+${HomeTab}                                          xpath=//*[@class="first leaf"]/a
 
-${SearchBox}                                        xpath=//*[@id="edit-combine"]
+${SearchBox}                                        xpath=//*[@id="hs-search-module"]
 
 
 ### Css Variables ###
-${SolutionsCss}                                     li.first.expanded.dropdown a
-${SolutionsTag}                                     NaviNet Solutions
+${LogoCss}                                          logo
+${LogoTag}                                          NaviNet Logo
 
 
 ### Partial Link Text Variables ###
-${Contact}                                          CT
+${Contact}                                          Contact
 ${ContactTag}                                       NaviNet Contact
-
-
-### Xpath Variables ###
-${Navbar}                                           //*[@id="navbar"]/div/div
-${NavbarWidth}                                      500
-${NavbarHeight}                                     120
-${NavbarTag}                                        NaviNet Navbar
 
 
 ### Applitools Variables ###
 ${Applitools-url}                                   http://www.navinet.net/
 ${Applitools-AppName}                               RobotAppEyes_Test
 ${Applitools-TestName}                              NaviNet_RobotAppEyes_Test
-${Applitools-Key}                                   YourApplitoolsKey
-${Width}                                            1024
-${Height}                                           768
+${Applitools-Key}                                   1nQlY4wJU9qmHO34BCTAzxbm106wNgyDxWc3RCVF9KR6I110
+${Applitoolscloud-url}                              yourCloudUrl           # (only needed if you have an account in the Applitools cloud)
+${RobotLibrary}                                     yourSeleniumLibrary    # (Only needed if you don't use Selenium2Library)
+${Width}                                            1200
+${Height}                                           617
 
 ${OSOverride}                                       OSOverride
 ${BrowserOverride}                                  BrowserOverride
@@ -50,50 +45,48 @@ ${True}                                             True
 *** Test Cases ***
 
 RobotAppEyes 1.0 Test
-    Open Browser                                    ${Applitools-url}     gc
-    Open Eyes Session                               ${Applitools-AppName}    ${Applitools-TestName}1.0     ${Applitools-Key}      width=${Width}      height=${Height}   includeEyesLog=${True}
-    Check Eyes Region                               ${Navbar}             ${NavbarWidth}           ${NavbarHeight}            ${NavbarTag}
+    Open Browser                                    ${Applitools-url}       gc
+    Open Eyes Session                               ${Applitools-AppName}   ${Applitools-TestName}1.0     ${Applitools-Key}      width=${Width}      height=${Height}
     NaviNet Home Page Check
     Check Eyes Window                               NaviNet Home
     NaviNet Solutions Check
     Check Eyes Window                               NaviNet Solutions
+    Check Eyes Region By Selector                   PARTIAL_LINK_TEXT       ${Contact}          ${ContactTag}
+    Check Eyes Region By Element                    ID       ${LogoCss}     ${LogoTag}
     Check Transform Payer-Provider Collaboration
     Check Eyes Window                               Transform Payer-Provider Collaboration
-    Search for Open
-    Check Eyes Window                               Quick Search
-    Check Eyes Region By Element                    CSS SELECTOR        ${SolutionsCss}     ${SolutionsTag}
-    Check Eyes Region By Selector                   PARTIAL LINK TEXT   ${Contact}          ${ContactTag}
+    Select Eyes Ignore Region By Selector           ID   block-search-form
+    Select Eyes Floating Region By Selector         ID   ${LogoCss}    10   15   10   15
     [Teardown]     Session Teardown
 
 
               ##### Examples of how to check the region by an element #####
             # Check Eyes Region By Element                     XPATH                ${Navbar}                               NaviNetXpathElement
-            # Check Eyes Region By Element                     CSS SELECTOR         ${SolutionsCss}                         NaviNetCssElement
+            # Check Eyes Region By Element                     CSS_SELECTOR         ${SolutionsCss}                         NaviNetCssElement
             # Check Eyes Region By Element                     ID                   navbar                                  NaviNetIdElement
-            # Check Eyes Region By Element                     CLASS NAME           container                               NaviNetClassElement
+            # Check Eyes Region By Element                     CLASS_NAME           container                               NaviNetClassElement
 
               ##### Examples of how to check the region by a selector #####
-            # Check Eyes Region By Selector                    CSS SELECTOR         .first.expanded.dropdown                NaviNetCssElement
+            # Check Eyes Region By Selector                    CSS_SELECTOR         .first.expanded.dropdown                NaviNetCssElement
             # Check Eyes Region By Selector                    XPATH                //*[@id="navbar"]/div/div/a/img         NaviNetXpathElement
             # Check Eyes Region By Selector                    ID                   navbar                                  NaviNetIdElement
-            # Check Eyes Region By Selector                    LINK TEXT            RESOURCES                               NaviNetLinkTextElement
-            # Check Eyes Region By Selector                    PARTIAL LINK TEXT    CT                                      NaviNetPartialLinkTextElement
-            # Check Eyes Region By Selector                    TAG NAME             a                                       NaviNetTagElement 
-            # Check Eyes Region By Selector                    CLASS NAME           navbar-search                           NaviNetClassElement
+            # Check Eyes Region By Selector                    LINK_TEXT            RESOURCES                               NaviNetLinkTextElement
+            # Check Eyes Region By Selector                    PARTIAL_LINK_TEXT    CT                                      NaviNetPartialLinkTextElement
+            # Check Eyes Region By Selector                    TAG_NAME             a                                       NaviNetTagElement
+            # Check Eyes Region By Selector                    CLASS_NAME           navbar-search                           NaviNetClassElement
 
               ##### NOTE: The NaviNet website had no NAME selector so https://www.google.co.uk/ was used for this example #####
             # Check Eyes Region By Selector                    NAME                 gbqf                                  NaviNetNameElement
 
 RobotAppEyes 1.1 Test
     Open Browser                                    ${Applitools-url}     gc
-    Open Eyes Session                               ${Applitools-AppName}    ${Applitools-TestName}1.1     ${Applitools-Key}     width=${Width}       height=${Height}        osname=${OSOverride}     browsername=${BrowserOverride}      matchlevel=${MatchLevel}   includeEyesLog=${True}
-    ${isOpen}=                                      Eyes Session Is Open 
+    Open Eyes Session                               ${Applitools-AppName}    ${Applitools-TestName}1.1     ${Applitools-Key}   ${Applitoolscloud-url}   ${RobotLibrary}   width=${Width}       height=${Height}       force_full_page_screenshot=True   osname=${OSOverride}     browsername=${BrowserOverride}      matchlevel=${MatchLevel}   includeEyesLog=${True}
+    ${isOpen}=                                      Eyes Session Is Open
     Log                                             ${isOpen}
     Compare Image                                   pictureOne.png        Test Image Name      includeEyesLog=${True}    httpDebugLog=${True}
-    Check Eyes Region                               ${Navbar}             ${NavbarWidth}       ${NavbarHeight}           ${NavbarTag}
+    Check Eyes Region By Selector                   PARTIAL_LINK_TEXT       ${Contact}          ${ContactTag}
     NaviNet Home Page Check
     Check Eyes Window                               NaviNet Home
-    Check Eyes Window                               NaviNet Home          force_full_page_screenshot=${True}
     [Teardown]      Session Teardown
 
 *** Keywords ***
@@ -104,16 +97,10 @@ NaviNet Home Page Check
 
 NaviNet Solutions Check
     Click Element                                   ${SolutionsTab}
-    Wait Until Page Contains Element                ${NaviNetOpen}       ${Timeout}
-    Wait Until Page Contains                        Let Us Help You Navigate the Future           ${Timeout}
+    Wait Until Page Contains Element                ${CompanyTab}        ${Timeout}
 
 Check Transform Payer-Provider Collaboration
-    Click Element                                   ${TransformTab}
-    Wait Until Page Contains                        Develop a New Network Technology Strategy     ${Timeout}
-
-Search for Open
-    Wait Until Page Contains Element                ${SearchBox}         ${Timeout}
-    Input Text                                      ${SearchBox}         Open
+    Click Element                                   ${HomeTab}
 
 Session Teardown
     Run Keyword And Continue On Failure             Close Eyes Session
